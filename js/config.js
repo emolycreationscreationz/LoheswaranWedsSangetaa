@@ -45,6 +45,15 @@ window.WEDDING = {
   familiesEyebrow: "Together with their families",
   familiesIntro: "With full hearts, we invite you to their wedding",
 
+  // --- The Venue (page 3) ---
+  venue: {
+    label: "The Celebration Venue",
+    name: "Gemersik Bayu Villa",
+    area: "",                                           // [TBC] e.g. "Port Dickson, Negeri Sembilan". Empty = hidden.
+    googleMaps: "https://share.google/rTHuXl7OQXmZ05BMh",
+    waze: "https://waze.com/ul?q=Gemersik%20Bayu%20Villa&navigate=yes"
+  },
+
   // --- The Wedding ---
   // icon: "family" | "ring" | "mandap" | "sparkle" | "food"
   wedding: {

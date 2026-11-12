@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/style.css?v=14" />
 </head>
 <body class="is-locked">
 
@@ -129,6 +129,31 @@
       </div>
     </section>
 
+    <!-- ============ THE VENUE ============ -->
+    <section class="venue-page" id="venue">
+      <div class="venue-page__scene" aria-hidden="true"></div>
+      <div class="venue-page__palm venue-page__palm--left" aria-hidden="true"></div>
+      <div class="venue-page__palm venue-page__palm--right" aria-hidden="true"></div>
+      <div class="venue-page__diya venue-page__diya--left" aria-hidden="true"></div>
+      <div class="venue-page__diya venue-page__diya--right" aria-hidden="true"></div>
+
+      <div class="venue-page__inner">
+        <p class="venue-page__label reveal" data-bind="venue.label"></p>
+        <h2 class="venue-page__name reveal" data-bind="venue.name"></h2>
+        <p class="venue-page__area reveal" data-bind="venue.area"></p>
+        <div class="venue-page__btns reveal">
+          <a class="btn-line" data-href="venue.googleMaps" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Google Maps
+          </a>
+          <a class="btn-line" data-href="venue.waze" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>
+            Waze
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ THE WEDDING ============ -->
     <section class="wedding">
       <div class="wedding__scene" aria-hidden="true"></div>
@@ -141,14 +166,6 @@
 
         <div class="schedule glass reveal" id="weddingSchedule"></div>
 
-        <div class="venue glass reveal">
-          <p class="eyebrow">Wedding Venue</p>
-          <h3 class="venue__name" data-bind="wedding.venue.name"></h3>
-          <p class="venue__addr"><i class="ico ico--pin"></i><span data-bind="wedding.venue.address"></span></p>
-          <a class="btn btn--maroon" data-href="wedding.venue.mapsUrl" target="_blank" rel="noopener">
-            <i class="ico ico--nav"></i> Get Directions
-          </a>
-        </div>
       </div>
     </section>
 
@@ -192,7 +209,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=7"></script>
-  <script src="js/app.js?v=7"></script>
+  <script src="js/config.js?v=14"></script>
+  <script src="js/app.js?v=14"></script>
 </body>
 </html>

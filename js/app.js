@@ -22,7 +22,7 @@
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
     if (v != null && v !== "") el.textContent = v;
-    else if (el.matches(".person__home, .person__title, .eyebrow")) el.remove();
+    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area")) el.remove();
   });
   document.querySelectorAll("[data-bind-html]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind-html"));

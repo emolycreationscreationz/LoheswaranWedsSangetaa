@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <radialGradient id="g" cx=".5" cy=".38" r=".5"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".9"/><stop offset=".4" stop-color="#ffb84a" stop-opacity=".35"/><stop offset="1" stop-color="#ff8a1e" stop-opacity="0"/></radialGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a5a14"/><stop offset=".45" stop-color="#f6dc93"/><stop offset=".7" stop-color="#d4a447"/><stop offset="1" stop-color="#7a4a10"/></linearGradient>
+  </defs>
+  <circle class="halo" cx="60" cy="44" r="44" fill="url(#g)"/>
+  <path class="flame" d="M60 18 C68 32 68 44 60 54 C52 44 52 32 60 18Z" fill="#ffd25e"/>
+  <path d="M60 30 C64 38 64 45 60 51 C56 45 56 38 60 30Z" fill="#fff6d6"/>
+  <path d="M60 52 v6" stroke="#5a3010" stroke-width="2"/>
+  <path d="M22 62 C30 92 90 92 98 62 Z" fill="url(#b)"/>
+  <ellipse cx="60" cy="62" rx="38" ry="7" fill="#f3d68a"/>
+  <ellipse cx="60" cy="62" rx="32" ry="4.5" fill="#6b3a10"/>
+  <path d="M40 86 h40 l6 10 h-52Z" fill="url(#b)"/>
+</svg>
