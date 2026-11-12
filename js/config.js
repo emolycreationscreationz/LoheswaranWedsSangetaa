@@ -119,7 +119,7 @@ window.WEDDING = {
   // apiUrl: the Google Apps Script Web App URL (see google-apps-script/Code.gs).
   // While empty, the form runs in demo mode (nothing is saved).
   rsvp: {
-    apiUrl: "",
+    apiUrl: "https://script.google.com/macros/s/AKfycbz9JprZLQ6ML8rE4-4p5Yhxqn5z_QRVJvXn4Xrmr069UDSnPWAF42WEFOyKJDPWBYJN/exec",
     eyebrow: "Kindly Respond",
     intro: "Please let us know if you can join us.",   // e.g. add "by 30 November 2026"
     maxPax: 10,
