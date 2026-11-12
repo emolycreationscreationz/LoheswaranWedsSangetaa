@@ -367,16 +367,16 @@ a { color: inherit; }
    FAMILIES (cream paper with gold leaf line-art)
    ============================================================ */
 .families {
-  position: relative; padding: 5.5rem 1.6rem 4.5rem; text-align: center; overflow: hidden;
+  position: relative; padding: 5.5rem 1.6rem 6rem; text-align: center; overflow: hidden;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 35%, rgba(255, 251, 240, .9), transparent 70%),
-    radial-gradient(ellipse at 80% 90%, rgba(236, 210, 160, .35), transparent 60%),
-    linear-gradient(180deg, #fbf0dc 0%, #f8e9cf 55%, #f5e2c2 100%);
+    radial-gradient(ellipse 60% 45% at 50% 45%, rgba(255, 248, 228, .55), transparent 75%),
+    url("../assets/backgrounds/families.webp") center bottom / cover no-repeat,
+    #f6dca8;
 }
-.families::before {   /* faint paper grain */
-  content: ""; position: absolute; inset: 0; opacity: .35; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+/* gold leaf line-art is kept for a plain background; hidden over the temple photo */
+.families__leaves { display: none; }
 .families__leaves {
   position: absolute; pointer-events: none; opacity: .85;
   background: url("../assets/art/gold-leaves.svg") left top / contain no-repeat;
