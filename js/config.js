@@ -102,24 +102,17 @@ window.WEDDING = {
     }
   },
 
-  // --- The Reception (set reception: null to hide this section) ---
+  // --- The Reception (page 5). Set reception: null to hide this page. ---
   reception: {
-    title: "The Reception",
-    subtitle: "An evening of joy, dinner and dancing as we celebrate our new beginning.",
-    city: "City",                                                   // [TBC]
-    days: [
-      {
-        day: "30", month: "JAN", weekday: "Saturday",               // [TBC]
-        events: [
-          { name: "Evening Celebration", time: "7:00 PM onwards", icon: "sparkle" }
-        ]
-      }
-    ],
-    venue: {
-      name: "Reception Venue Name",                                 // [TBC]
-      address: "Venue address, Postcode City",                      // [TBC]
-      mapsUrl: "https://maps.google.com/"                           // [TBC]
-    }
+    intro: ["With Full Hearts,", "We Invite You To Their Wedding Reception"],
+    month: "December",
+    weekday: "Sunday",
+    day: "13",
+    time: "7:31 PM",
+    year: "2026",
+    venue: ["Community Hall,", "Sungai Pelek"],
+    googleMaps: "https://share.google/CHf3CGpm3InYVLLFY",
+    waze: "https://waze.com/ul?q=Community%20Hall%20Sungai%20Pelek&navigate=yes"
   },
 
   thankYou: "Your presence and blessings will make our celebration complete. We would be honoured to share this beautiful beginning with you.",

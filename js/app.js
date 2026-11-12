@@ -18,6 +18,12 @@
     if (p) p.parentsHtml = esc(p.father) + ' <em>&amp;</em> ' + esc(p.mother);
   });
 
+  if (W.reception) {
+    var lines = function (arr) { return (arr || []).map(esc).join("<br>"); };
+    W.reception.introHtml = lines(W.reception.intro);
+    W.reception.venueHtml = lines(W.reception.venue);
+  }
+
   // ---------- bind text ----------
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
@@ -61,8 +67,7 @@
     }).join("");
   }
   renderSchedule("weddingSchedule", W.wedding);
-  if (W.reception) renderSchedule("receptionSchedule", W.reception);
-  else { var r = document.getElementById("reception"); if (r) r.remove(); }
+  if (!W.reception) { var r = document.getElementById("reception"); if (r) r.remove(); }
 
   // ---------- dress code ----------
   (function () {

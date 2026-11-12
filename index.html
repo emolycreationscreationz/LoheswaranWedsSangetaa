@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=20" />
+  <link rel="stylesheet" href="css/style.css?v=22" />
 </head>
 <body class="is-locked">
 
@@ -166,6 +166,33 @@
       <div class="dress__waves" aria-hidden="true"></div>
     </section>
 
+    <!-- ============ THE RECEPTION ============ -->
+    <section class="reception" id="reception">
+      <div class="reception__inner">
+        <p class="reception__intro reveal" data-bind-html="reception.introHtml"></p>
+        <div class="datebar reveal" aria-label="Reception date and time">
+          <p class="datebar__month" data-bind="reception.month"></p>
+          <div class="datebar__row">
+            <span class="datebar__side" data-bind="reception.weekday"></span>
+            <span class="datebar__day" data-bind="reception.day"></span>
+            <span class="datebar__side" data-bind="reception.time"></span>
+          </div>
+          <p class="datebar__year" data-bind="reception.year"></p>
+        </div>
+        <h3 class="reception__venue reveal" data-bind-html="reception.venueHtml"></h3>
+        <div class="venue-page__btns reveal">
+          <a class="btn-line" data-href="reception.googleMaps" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            Google Maps
+          </a>
+          <a class="btn-line" data-href="reception.waze" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>
+            Waze
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ THE WEDDING ============ -->
     <section class="wedding">
       <div class="wedding__scene" aria-hidden="true"></div>
@@ -178,29 +205,6 @@
 
         <div class="schedule glass reveal" id="weddingSchedule"></div>
 
-      </div>
-    </section>
-
-    <!-- ============ THE RECEPTION ============ -->
-    <section class="reception" id="reception">
-      <div class="reception__lights" aria-hidden="true"></div>
-      <div class="reception__inner">
-        <h2 class="section-title section-title--xl section-title--light reveal" data-bind="reception.title"></h2>
-        <p class="lede lede--italic lede--light reveal" data-bind="reception.subtitle"></p>
-
-        <p class="eyebrow eyebrow--gold reveal">Join us in</p>
-        <h3 class="city city--light reveal" data-bind="reception.city"></h3>
-
-        <div class="schedule schedule--dark reveal" id="receptionSchedule"></div>
-
-        <div class="venue venue--dark reveal">
-          <p class="eyebrow eyebrow--gold">Venue</p>
-          <h3 class="venue__name" data-bind="reception.venue.name"></h3>
-          <p class="venue__addr"><i class="ico ico--pin"></i><span data-bind="reception.venue.address"></span></p>
-          <a class="btn btn--gold" data-href="reception.venue.mapsUrl" target="_blank" rel="noopener">
-            <i class="ico ico--nav"></i> Get Directions
-          </a>
-        </div>
       </div>
     </section>
 
@@ -221,7 +225,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=20"></script>
-  <script src="js/app.js?v=20"></script>
+  <script src="js/config.js?v=22"></script>
+  <script src="js/app.js?v=22"></script>
 </body>
 </html>

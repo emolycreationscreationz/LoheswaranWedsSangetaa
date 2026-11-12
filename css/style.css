@@ -544,6 +544,58 @@ a { color: inherit; }
 }
 
 /* ============================================================
+   THE RECEPTION (velvet curtains & lanterns)
+   ============================================================ */
+.reception {
+  position: relative; overflow: hidden; text-align: center; color: #fbf1df;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 5rem 1.4rem 6rem;
+  background:
+    radial-gradient(ellipse 45% 50% at 50% 48%, rgba(30, 3, 6, .45), transparent 75%),
+    url("../assets/backgrounds/reception.webp") center / cover no-repeat,
+    #3a070d;
+}
+.reception__inner { position: relative; z-index: 1; max-width: 34rem; width: 100%; margin: 0 auto; }
+.reception__intro {
+  font-family: var(--f-display); font-style: italic; font-size: clamp(1.15rem, 4.6vw, 1.6rem); line-height: 1.45;
+  letter-spacing: .03em; color: #ecd3a0; margin-bottom: 1.8rem;
+}
+.datebar { margin: 0 auto 2rem; max-width: 30rem; font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.datebar__month, .datebar__year {
+  font-family: var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: .18em;
+  font-size: clamp(1.5rem, 6vw, 2.2rem); color: #fbf1df; line-height: 1.2;
+}
+.datebar__year { font-size: clamp(1.4rem, 5.4vw, 2rem); letter-spacing: .14em; }
+.datebar__row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .9rem; margin: .5rem 0; }
+.datebar__side {
+  padding: .7rem 0; border-top: 1.5px solid rgba(227, 189, 120, .75); border-bottom: 1.5px solid rgba(227, 189, 120, .75);
+  font-family: var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: .14em;
+  font-size: clamp(1rem, 4.2vw, 1.5rem); color: #f3dcae; white-space: nowrap;
+}
+.datebar__day {
+  font-family: var(--f-display); font-weight: 600; font-size: clamp(3.8rem, 17vw, 5.8rem); line-height: 1; color: #f6d98f;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, .4);
+}
+.reception__venue {
+  font-family: var(--f-display); font-weight: 500; text-transform: uppercase; letter-spacing: .3em;
+  font-size: clamp(1rem, 4.4vw, 1.45rem); line-height: 1.6; color: #fbf1df; margin-bottom: .4rem;
+}
+@media (max-width: 480px) {
+  .reception__intro { font-size: clamp(1rem, 4.2vw, 1.15rem); padding: 0 1.2rem; }
+  .datebar__row { gap: .6rem; }
+}
+@media (max-width: 899px) {
+  .reception {
+    min-height: max(100svh, 190vw);
+    background:
+      radial-gradient(ellipse 60% 40% at 50% 46%, rgba(30, 3, 6, .5), transparent 75%),
+      url("../assets/backgrounds/reception-mobile.webp") center / cover no-repeat,
+      #3a070d;
+  }
+}
+
+/* ============================================================
    THE WEDDING
    ============================================================ */
 .wedding {
@@ -594,55 +646,6 @@ a { color: inherit; }
 .venue__name { font-family: var(--f-display); font-weight: 600; font-size: 1.9rem; line-height: 1.1; margin: .5rem 0 .6rem; }
 .venue__addr { display: flex; align-items: center; justify-content: center; gap: .4rem; font-size: 1rem; color: var(--brown-soft); margin-bottom: 1.3rem; }
 .venue .btn { width: 100%; }
-
-/* ============================================================
-   THE RECEPTION (sunset by the sea, festoon lights)
-   ============================================================ */
-.reception {
-  position: relative; padding: 5rem 1.1rem 4rem; text-align: center; color: #fff;
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(240, 140, 70, .35), transparent 60%),
-    linear-gradient(180deg, #3a0a10 0%, #5a1218 45%, #6e2418 80%, #3b1810 100%);
-  overflow: hidden;
-}
-.reception__lights {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(circle, rgba(255, 214, 140, .95) 1.6px, rgba(255, 190, 90, .35) 3px, transparent 7px) 0 0 / 34px 30px,
-    radial-gradient(circle, rgba(255, 214, 140, .8) 1.2px, transparent 6px) 17px 15px / 34px 30px;
-  -webkit-mask: linear-gradient(#000 0, rgba(0,0,0,.6) 18%, transparent 34%);
-  mask: linear-gradient(#000 0, rgba(0,0,0,.6) 18%, transparent 34%);
-  animation: twinkle 3.5s ease-in-out infinite;
-}
-.reception::before {    /* drapes */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(20, 2, 4, .6), transparent 16%, transparent 84%, rgba(20, 2, 4, .6)),
-    repeating-linear-gradient(90deg, rgba(0,0,0,.1) 0 10px, rgba(255,255,255,.03) 10px 20px);
-}
-.reception::after {     /* sea silhouette at bottom */
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 120px; pointer-events: none;
-  background:
-    linear-gradient(180deg, transparent, rgba(30, 10, 8, .6)),
-    repeating-linear-gradient(180deg, rgba(255, 200, 140, .12) 0 1px, transparent 1px 9px);
-  -webkit-mask: linear-gradient(transparent, #000 40%); mask: linear-gradient(transparent, #000 40%);
-}
-@keyframes twinkle { 50% { opacity: .65; } }
-.reception__inner { position: relative; z-index: 1; }
-.reception .lede { margin-bottom: 2.4rem; }
-.schedule--dark .day__date { background: rgba(255, 240, 220, .18); color: #fff3dc; box-shadow: none; border: 1px solid rgba(255, 230, 190, .2); }
-.schedule--dark .day__date small { color: #e8cfa8; border-color: rgba(255, 230, 190, .25); }
-.schedule--dark .day__events { background: rgba(60, 10, 14, .55); border: 1px solid rgba(255, 230, 190, .15); box-shadow: none; }
-.schedule--dark .event__name, .schedule--dark .event__time { color: #fff3dc; }
-.schedule--dark .event__icon { background: rgba(255, 230, 190, .12); }
-.schedule--dark .event__icon svg { stroke: var(--gold-light); }
-.schedule--dark .event + .event { border-color: rgba(255, 230, 190, .15); }
-.venue--dark {
-  border-radius: 24px; background: rgba(40, 6, 10, .55); border: 1px solid rgba(255, 230, 190, .18);
-  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-}
-.venue--dark .venue__name { color: #fff4de; }
-.venue--dark .venue__addr { color: #ecd9bd; }
 
 /* ============================================================
    THANK YOU
