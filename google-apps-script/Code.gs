@@ -55,7 +55,12 @@ function doPost(e) {
     var meal = MEALS.indexOf(d.meal) >= 0 ? d.meal : '';
     var wishes = clean_(d.wishes, 500);
     if (!name || !phone || !meal) return json_({ ok: false, error: 'Name, phone and meal are required' });
-    sheet_().appendRow([new Date(), name, "'" + phone, pax, meal, wishes]);
+    // Write to the first empty row of column A, so a summary box beside the
+    // table (e.g. in columns I-J) doesn't push replies further down.
+    var sh = sheet_();
+    var used = sh.getRange('A:A').getValues().filter(function (r) { return r[0] !== ''; }).length;
+    sh.getRange(used + 1, 1, 1, HEADERS.length)
+      .setValues([[new Date(), name, "'" + phone, pax, meal, wishes]]);
     return json_({ ok: true });
   } catch (err) {
     return json_({ ok: false, error: String(err) });
