@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=26" />
+  <link rel="stylesheet" href="css/style.css?v=28" />
 </head>
 <body class="is-locked">
 
@@ -210,23 +210,36 @@
 
     <!-- ============ CLOSING (last page) ============ -->
     <section class="closing" id="closing">
-      <div class="closing__photo-wrap reveal-photo">
-        <img class="closing__photo" data-src-bind="closing.photo" alt="Loheswaran and Sangetaa looking out over the water together" loading="lazy">
-        <div class="closing__petals" aria-hidden="true"></div>
-      </div>
-      <div class="closing__text">
+      <div class="closing__leaves closing__leaves--tl" aria-hidden="true"></div>
+      <div class="closing__leaves closing__leaves--br" aria-hidden="true"></div>
+      <div class="closing__sparkles" aria-hidden="true"></div>
+
+      <figure class="closing__frame reveal-photo">
+        <span class="closing__crest" aria-hidden="true"></span>
+        <div class="closing__arch">
+          <img class="closing__photo" data-src-bind="closing.photo" alt="Loheswaran and Sangetaa looking out over the water together" loading="lazy">
+          <div class="closing__petals" aria-hidden="true"></div>
+        </div>
+      </figure>
+
+      <div class="closing__card">
+        <span class="closing__corner closing__corner--tl" aria-hidden="true"></span>
+        <span class="closing__corner closing__corner--tr" aria-hidden="true"></span>
+        <span class="closing__corner closing__corner--bl" aria-hidden="true"></span>
+        <span class="closing__corner closing__corner--br" aria-hidden="true"></span>
         <p class="closing__message reveal" data-bind-html="closing.messageHtml"></p>
         <span class="closing__flourish reveal" aria-hidden="true"><i></i><b></b><i></i></span>
         <p class="closing__signoff reveal" data-bind="closing.signoff"></p>
         <p class="closing__names reveal"><span data-bind="closing.names"></span></p>
       </div>
+
       <footer class="credit">
         Made with <span>♥</span> by <b>Emoly Creations</b>
       </footer>
     </section>
   </main>
 
-  <script src="js/config.js?v=26"></script>
-  <script src="js/app.js?v=26"></script>
+  <script src="js/config.js?v=28"></script>
+  <script src="js/app.js?v=28"></script>
 </body>
 </html>

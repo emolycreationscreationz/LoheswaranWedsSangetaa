@@ -38,7 +38,7 @@
   });
   document.querySelectorAll("[data-src-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-src-bind"));
-    if (v) el.src = v; else el.closest(".closing__photo-wrap").remove();
+    if (v) el.src = v; else el.closest(".closing__frame").remove();
   });
   document.querySelectorAll("[data-href]").forEach(function (el) {
     var v = get(el.getAttribute("data-href"));
@@ -182,6 +182,21 @@
       p.style.setProperty("--drift", (Math.random() * 80 - 40) + "px");
       p.style.setProperty("--size", (6 + Math.random() * 7) + "px");
       host.appendChild(p);
+    }
+  })();
+
+  // ---------- closing sparkles ----------
+  (function () {
+    var host = document.querySelector(".closing__sparkles");
+    if (!host) return;
+    for (var i = 0; i < 18; i++) {
+      var sp = document.createElement("span");
+      sp.style.left = (4 + Math.random() * 92) + "%";
+      sp.style.top = (3 + Math.random() * 94) + "%";
+      sp.style.animationDelay = (-Math.random() * 4) + "s";
+      sp.style.animationDuration = (2.6 + Math.random() * 2.4) + "s";
+      sp.style.setProperty("--s", (6 + Math.random() * 10) + "px");
+      host.appendChild(sp);
     }
   })();
 
