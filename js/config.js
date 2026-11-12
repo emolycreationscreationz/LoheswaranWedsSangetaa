@@ -24,7 +24,7 @@ window.WEDDING = {
     hometown: "Hometown, Malaysia"            // [TBC]
   },
 
-  quote: "“Like the tide that always finds the shore, our hearts found their way home to each other.”",
+  quote: "“A Love Written by the Waves...”",
 
   // --- Dates ---
   dateShort: "DD · MM · 2027",                 // [TBC] shown on the opening doors
