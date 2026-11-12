@@ -39,11 +39,11 @@ a { color: inherit; }
 
 .page {
   position: relative;
-  max-width: var(--page-w);
-  margin: 0 auto;
   background: var(--ivory);
   overflow: hidden;
-  box-shadow: 0 0 60px rgba(0, 0, 0, .5);
+}
+.message__inner, .families__inner, .wedding__inner, .reception__inner, .thanks__inner {
+  max-width: var(--page-w); margin-left: auto; margin-right: auto;
 }
 
 /* ---------- shared type ---------- */
@@ -256,18 +256,18 @@ a { color: inherit; }
    ============================================================ */
 .music {
   position: fixed; z-index: 50; top: 14px;
-  right: max(14px, calc((100vw - var(--page-w)) / 2 + 14px));
-  width: 42px; height: 42px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; gap: 3px;
-  background: rgba(255, 250, 240, .9); box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
-  border: 1px solid rgba(200, 155, 69, .4);
+  right: 14px;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(255, 252, 246, .88); box-shadow: 0 4px 14px rgba(60, 30, 10, .16);
+  border: 1px solid rgba(255, 255, 255, .9);
+  color: #8c7b6a;
 }
 .music[hidden] { display: none; }
-.music span { width: 3px; height: 14px; border-radius: 2px; background: var(--gold-deep); transform-origin: bottom; transform: scaleY(.45); }
-.music.is-playing span { animation: eq 1s ease-in-out infinite; }
-.music.is-playing span:nth-child(2) { animation-delay: -.4s; }
-.music.is-playing span:nth-child(3) { animation-delay: -.7s; }
-@keyframes eq { 0%, 100% { transform: scaleY(.35); } 50% { transform: scaleY(1); } }
+.music svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.music .music__on { display: none; }
+.music.is-playing .music__on { display: inline; }
+.music.is-playing .music__off { display: none; }
 
 /* ============================================================
    HERO
@@ -277,7 +277,18 @@ a { color: inherit; }
   min-height: 100vh; min-height: 100svh;
   display: flex; flex-direction: column;
   background: linear-gradient(180deg, #fdf5e6 0%, #fbeedb 40%, #f8e2c4 70%, #f6c99c 100%);
+  overflow: hidden;
 }
+/* photo background (set in config.heroImage); replaces the drawn scene once it loads */
+.hero__photo {
+  position: absolute; inset: 0; z-index: 0; display: none;
+  background: var(--hero-mobile) center bottom / cover no-repeat;
+}
+.hero.has-photo .hero__photo { display: block; }
+.hero.has-photo .hero__scene,
+.hero.has-photo .pillar,
+.hero.has-photo .thoranam { display: none; }
+.hero.has-photo .hero__inner { flex: 1; }
 .hero__inner {
   position: relative; z-index: 4;
   padding: 5.6rem 2.6rem 0; text-align: center;
@@ -306,6 +317,30 @@ a { color: inherit; }
   flex: 1; min-height: 330px; margin-top: -40px;
   background: url("../assets/art/beach-mandap.svg") center bottom / max(135%, 520px) auto no-repeat;
   -webkit-mask: linear-gradient(transparent 0, #000 22%); mask: linear-gradient(transparent 0, #000 22%);
+}
+
+/* desktop: text on the left, mandap on the right */
+@media (min-width: 900px) {
+  .hero { height: 100vh; min-height: 640px; flex-direction: row; align-items: center; }
+  .hero__photo { background-image: var(--hero-desktop); background-position: center; }
+  .hero__inner {
+    width: 44%; margin-left: 9%; padding: 0 2rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .hero.has-photo .hero__inner { flex: none; }
+  .hero__quote { font-size: 1.3rem; max-width: 22rem; margin-bottom: 2.2rem; }
+  .hero__name { font-size: clamp(4rem, 5.6vw, 6rem); }
+  .hero__weds { font-size: clamp(2.6rem, 3vw, 3.4rem); margin: .2rem 0 .4rem; }
+  .countdown { gap: .7rem; margin-top: 2.6rem; }
+  .countdown div { width: 74px; padding: .75rem 0 .55rem; border-radius: 12px; }
+  .countdown b { font-size: 2rem; }
+  .countdown small { font-size: .52rem; margin-top: .2rem; display: block; }
+  .hero__scene {
+    position: absolute; top: 0; right: 0; bottom: 0; width: 60%; margin: 0;
+    background-size: cover; background-position: 50% 100%;
+    -webkit-mask: linear-gradient(90deg, transparent 0, #000 30%); mask: linear-gradient(90deg, transparent 0, #000 30%);
+  }
+  .pillar { width: 64px; background-size: 64px 90px; -webkit-mask: none; mask: none; }
 }
 
 /* ============================================================

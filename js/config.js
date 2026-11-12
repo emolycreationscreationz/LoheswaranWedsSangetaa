@@ -30,6 +30,15 @@ window.WEDDING = {
   dateShort: "DD · MM · 2027",                 // [TBC] shown on the opening doors
   countdownTo: "2027-01-24T09:00:00+08:00",    // [TBC] muhurtham start, Malaysia time (+08:00)
 
+  // --- Hero background photo ---
+  // Wide image for desktop (16:9, e.g. 1920x1080) and tall image for phones (9:16, e.g. 1080x1920).
+  // Leave the left side (desktop) / top half (mobile) as soft empty haze for the names.
+  // If the files are missing, the drawn beach-mandap scene is shown instead.
+  heroImage: {
+    desktop: "assets/hero/hero-desktop.webp",
+    mobile: "assets/hero/hero-mobile.webp"
+  },
+
   // --- Hidden message card ---
   message: "Some moments become memories because of the people who share them. As we step into this beautiful new chapter, it would mean the world to have you beside us — blessing our beginning, sharing our joy, and making our celebration complete.",
 

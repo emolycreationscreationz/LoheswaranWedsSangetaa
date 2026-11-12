@@ -63,6 +63,23 @@
   if (W.reception) renderSchedule("receptionSchedule", W.reception);
   else { var r = document.getElementById("reception"); if (r) r.remove(); }
 
+  // ---------- hero photo (falls back to the drawn scene if missing) ----------
+  (function () {
+    var img = W.heroImage || {};
+    var hero = document.getElementById("top");
+    var isDesk = window.matchMedia("(min-width: 900px)").matches;
+    var src = (isDesk ? img.desktop : img.mobile) || img.desktop || img.mobile;
+    if (!src || !hero) return;
+    var probe = new Image();
+    probe.onload = function () {
+      var abs = function (u) { return 'url("' + new URL(u, location.href).href + '")'; };
+      hero.style.setProperty("--hero-desktop", abs(img.desktop || img.mobile));
+      hero.style.setProperty("--hero-mobile", abs(img.mobile || img.desktop));
+      hero.classList.add("has-photo");
+    };
+    probe.src = src;
+  })();
+
   // ---------- opening doors ----------
   var gate = document.getElementById("gate");
   var openBtn = document.getElementById("openGate");
