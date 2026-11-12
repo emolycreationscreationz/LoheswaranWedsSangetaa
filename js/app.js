@@ -22,7 +22,7 @@
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
     if (v != null && v !== "") el.textContent = v;
-    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area")) el.remove();
+    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area, .dress__note, .dress__intro")) el.remove();
   });
   document.querySelectorAll("[data-bind-html]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind-html"));
@@ -63,6 +63,34 @@
   renderSchedule("weddingSchedule", W.wedding);
   if (W.reception) renderSchedule("receptionSchedule", W.reception);
   else { var r = document.getElementById("reception"); if (r) r.remove(); }
+
+  // ---------- dress code ----------
+  (function () {
+    var dc = W.dressCode;
+    var sec = document.getElementById("dress-code");
+    if (!dc) { if (sec) sec.remove(); return; }
+    var pal = document.getElementById("dressPalette");
+    if (pal) {
+      if (dc.palette && dc.palette.length) {
+        pal.innerHTML = dc.palette.map(function (c) {
+          return '<div class="swatch"><span class="swatch__dot" style="background:' + esc(c.hex) + '"></span><small>' + esc(c.name) + '</small></div>';
+        }).join("");
+      } else pal.remove();
+    }
+    var out = document.getElementById("dressOutfits");
+    if (out) {
+      out.innerHTML = (dc.outfits || []).map(function (o) {
+        var pic = o.image
+          ? '<img class="outfit__photo" src="' + esc(o.image) + '" alt="' + esc(o.label + ": " + o.title) + '" loading="lazy">'
+          : '<img class="outfit__art" src="' + esc(o.art) + '" alt="" aria-hidden="true">';
+        return '<article class="outfit reveal">' +
+          '<div class="outfit__frame">' + pic + '</div>' +
+          '<p class="eyebrow">' + esc(o.label) + '</p>' +
+          '<h3 class="outfit__title">' + esc(o.title) + '</h3>' +
+          '<p class="outfit__text">' + esc(o.text) + '</p></article>';
+      }).join("");
+    }
+  })();
 
   // ---------- hero photo (falls back to the drawn scene if missing) ----------
   (function () {
