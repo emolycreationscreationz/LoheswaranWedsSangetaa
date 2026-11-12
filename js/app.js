@@ -15,7 +15,7 @@
   W.couple = (W.groom && W.groom.short) + " & " + (W.bride && W.bride.short);
   ["groom", "bride"].forEach(function (k) {
     var p = W[k];
-    if (p) p.parentsHtml = esc(p.father) + ' <em>&amp;</em> ' + esc(p.mother);
+    if (p) p.parentsHtml = '<span class="parent">' + esc(p.father) + '</span> <em>&amp;</em> <span class="parent">' + esc(p.mother) + '</span>';
   });
 
   if (W.reception) {

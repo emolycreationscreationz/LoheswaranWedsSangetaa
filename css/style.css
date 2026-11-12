@@ -383,14 +383,18 @@ a { color: inherit; }
       url("../assets/backgrounds/families-mobile.webp") center / cover no-repeat,
       #e9c58a;
   }
-  section.families .section-title { font-size: 2.2rem; }
-  section.families .flourish-img { margin: .35rem auto .8rem; }
-  section.families .families__intro { font-size: 1.02rem; max-width: 17rem; margin-bottom: 1.5rem; }
-  section.families .person__name { font-size: clamp(1.8rem, 8vw, 2.2rem); margin-top: .5rem; }
+  section.families { min-height: max(100svh, 182vw); padding-top: 37vw; padding-bottom: 34vw; background-position: center top; }
+  section.families .eyebrow { font-size: .74rem; }
+  section.families .section-title { font-size: clamp(2.5rem, 11vw, 2.9rem); }
+  section.families .flourish-img { margin: .4rem auto .9rem; }
+  section.families .families__intro { font-size: clamp(1.15rem, 4.9vw, 1.3rem); max-width: 19rem; margin-bottom: 1.6rem; }
+  section.families .person__name { font-size: clamp(2.2rem, 10vw, 2.7rem); margin-top: .5rem; }
   section.families .flourish-img--sm { margin: .4rem auto .5rem; }
-  section.families .person__parents { font-size: clamp(.9rem, 4vw, 1.02rem); white-space: nowrap; }
-  section.families .person__parents em { padding: 0 .2rem; }
-  section.families .and { font-size: 2.2rem; margin: 1.1rem 0 .8rem; }
+  section.families .person__rel { font-size: clamp(1.1rem, 4.6vw, 1.22rem); }
+  section.families .person__parents { font-size: clamp(1.15rem, 5vw, 1.32rem); line-height: 1.35; }
+  section.families .person__parents .parent { display: block; }
+  section.families .person__parents em { display: block; font-size: .85em; line-height: 1.1; padding: 0; }
+  section.families .and { font-size: 2.8rem; margin: 1.3rem 0 1rem; }
   section.families .families__inner > .flourish-img:last-child { margin-top: 1.4rem; }
 }
 /* gold leaf line-art is kept for a plain background; hidden over the temple photo */
@@ -402,8 +406,9 @@ a { color: inherit; }
 .families__leaves--tl { top: -14px; left: -24px; width: clamp(150px, 42vw, 380px); aspect-ratio: 5 / 6; }
 .families__leaves--br { bottom: -20px; right: -30px; width: clamp(120px, 32vw, 300px); aspect-ratio: 5 / 6; transform: rotate(180deg); opacity: .5; }
 .families__inner { position: relative; z-index: 1; }
-.families .section-title { font-size: 2.5rem; margin: .45rem 0 .5rem; }
-.families__intro { font-size: 1.12rem; line-height: 1.5; color: var(--brown-soft); max-width: 21rem; margin: 0 auto 2.6rem; }
+.families .section-title { font-size: 3.2rem; margin: .45rem 0 .5rem; }
+.families .eyebrow { font-size: .78rem; }
+.families__intro { font-size: 1.4rem; line-height: 1.5; color: var(--brown-soft); max-width: 30rem; margin: 0 auto 2.6rem; }
 .flourish-img {
   display: block; width: 74px; height: 16px; margin: .5rem auto 1.3rem;
   background: url("../assets/art/flourish.svg") center / contain no-repeat;
@@ -412,14 +417,14 @@ a { color: inherit; }
 .families__inner > .flourish-img:last-child { margin-top: 2.6rem; margin-bottom: 0; }
 .person__name {
   font-family: var(--f-name); font-weight: 400; color: #3b1d12;
-  font-size: clamp(2rem, 9vw, 2.5rem); line-height: 1.1; letter-spacing: -.005em; margin-top: .9rem;
+  font-size: clamp(2rem, 9vw, 3.2rem); line-height: 1.1; letter-spacing: -.005em; margin-top: .9rem;
 }
 .person__title { font-family: var(--f-display); font-style: italic; font-size: .5em; color: var(--brown-soft); margin-left: .25em; letter-spacing: .02em; }
-.person__rel { font-style: italic; font-size: 1rem; color: var(--brown-soft); }
-.person__parents { font-family: var(--f-display); font-weight: 700; font-size: 1.12rem; margin: .35rem 0 .2rem; color: #3b1d12; }
+.person__rel { font-style: italic; font-size: 1.25rem; color: var(--brown-soft); }
+.person__parents { font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; margin: .35rem 0 .2rem; color: #3b1d12; }
 .person__parents em { font-style: normal; font-weight: 500; color: var(--gold); padding: 0 .3rem; }
 .person__home { font-style: italic; font-size: .92rem; color: #a0742e; }
-.and { font-family: var(--f-script); font-size: 2.6rem; color: var(--gold); margin: 1.8rem 0 1.2rem; position: relative; line-height: 1; }
+.and { font-family: var(--f-script); font-size: 3.2rem; color: var(--gold); margin: 1.8rem 0 1.2rem; position: relative; line-height: 1; }
 .and::before, .and::after { content: ""; position: absolute; top: 55%; width: 64px; height: 1px; background: var(--gold); opacity: .7; }
 .and::before { right: calc(50% + 38px); }
 .and::after { left: calc(50% + 38px); }
