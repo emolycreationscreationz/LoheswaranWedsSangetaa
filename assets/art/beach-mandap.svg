@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf3e3"/>
+      <stop offset=".55" stop-color="#fbe2c2"/>
+      <stop offset="1" stop-color="#f6c99c"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="200" cy="186" r="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff6dc"/>
+      <stop offset=".18" stop-color="#ffe3a8"/>
+      <stop offset=".45" stop-color="#fbd29a" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#f6c99c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8fb9b4"/>
+      <stop offset=".5" stop-color="#b7d0c3"/>
+      <stop offset="1" stop-color="#e6dcc0"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3e2c2"/>
+      <stop offset="1" stop-color="#ddbf8f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a87a2c"/>
+      <stop offset=".45" stop-color="#f3d68a"/>
+      <stop offset=".6" stop-color="#e4b85c"/>
+      <stop offset="1" stop-color="#9c6e24"/>
+    </linearGradient>
+    <linearGradient id="goldV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4d98f"/>
+      <stop offset="1" stop-color="#b8862f"/>
+    </linearGradient>
+    <linearGradient id="drape" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf0"/>
+      <stop offset="1" stop-color="#f1e2c6"/>
+    </linearGradient>
+    <linearGradient id="trunk" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6e4a2a"/>
+      <stop offset=".5" stop-color="#9b7046"/>
+      <stop offset="1" stop-color="#5d3c20"/>
+    </linearGradient>
+    <g id="frond">
+      <path d="M0 0 C18 -6 40 -4 58 8 C40 2 20 2 0 0Z" fill="#5f7a3a"/>
+      <path d="M6 -1 l3 7 M14 -2 l4 8 M22 -2 l4 8 M30 -1 l4 7 M38 1 l4 7 M46 3 l3 6" stroke="#4b6430" stroke-width="1.4" stroke-linecap="round"/>
+    </g>
+    <g id="palm">
+      <path d="M0 0 C-4 -40 4 -80 14 -118 l6 1 C12 -78 6 -40 8 0Z" fill="url(#trunk)"/>
+      <path d="M1 -10 h7 M1 -24 h7 M2 -38 h7 M3 -52 h7 M5 -66 h7 M7 -80 h7 M9 -94 h7 M12 -108 h6" stroke="#4e3219" stroke-width="1" opacity=".6"/>
+      <g transform="translate(17 -118)">
+        <use href="#frond" transform="rotate(-10)"/>
+        <use href="#frond" transform="rotate(25)"/>
+        <use href="#frond" transform="rotate(60) scale(.85)"/>
+        <use href="#frond" transform="scale(-1 1) rotate(-12)"/>
+        <use href="#frond" transform="scale(-1 1) rotate(28)"/>
+        <use href="#frond" transform="scale(-1 1) rotate(62) scale(.85)"/>
+        <use href="#frond" transform="rotate(-48) scale(.8)"/>
+        <use href="#frond" transform="scale(-1 1) rotate(-46) scale(.8)"/>
+        <circle cx="-3" cy="5" r="3.2" fill="#6d5428"/><circle cx="3" cy="6" r="3.2" fill="#7a5f2e"/><circle cx="0" cy="9" r="3" fill="#5f4822"/>
+      </g>
+    </g>
+    <g id="banana">
+      <path d="M0 0 C1 -20 0 -34 2 -46" stroke="#6e8a3e" stroke-width="3" fill="none"/>
+      <path d="M2 -44 C-10 -60 -26 -62 -34 -54 C-22 -52 -10 -48 2 -44Z" fill="#7d9b45"/>
+      <path d="M2 -44 C10 -64 26 -68 34 -60 C22 -56 12 -52 2 -44Z" fill="#6c8a3b"/>
+      <path d="M2 -40 C-8 -46 -22 -40 -28 -30 C-16 -36 -6 -38 2 -40Z" fill="#8bab50"/>
+      <path d="M2 -40 C12 -46 24 -40 30 -30 C18 -36 10 -38 2 -40Z" fill="#7a9846"/>
+      <path d="M2 -46 C0 -62 4 -74 8 -80 C8 -66 6 -56 2 -46Z" fill="#8fae52"/>
+    </g>
+    <g id="marigold-string">
+      <circle r="2.1" fill="#f09a1e"/><circle cy="4" r="2.1" fill="#f6b52e"/><circle cy="8" r="2.1" fill="#f09a1e"/><circle cy="12" r="2.1" fill="#f6b52e"/><circle cy="16" r="2.1" fill="#f09a1e"/><circle cy="20" r="2.1" fill="#f6b52e"/><circle cy="24" r="2.1" fill="#f09a1e"/><circle cy="28" r="1.6" fill="#fff"/><circle cy="31" r="2.6" fill="#c9302c"/>
+    </g>
+    <g id="lamp">
+      <path d="M-1 -26 q1 -6 2 0 q0 3 -1 3 q-1 0 -1 -3Z" fill="#ffd36b"/>
+      <path d="M-6 -22 h12 l-3 4 h-6Z" fill="url(#gold)"/>
+      <rect x="-1.2" y="-18" width="2.4" height="14" fill="url(#gold)"/>
+      <circle cy="-11" r="2" fill="url(#gold)"/>
+      <path d="M-5 -4 h10 l2 4 h-14Z" fill="url(#gold)"/>
+    </g>
+  </defs>
+
+  <!-- sky & sun -->
+  <rect width="400" height="300" fill="url(#sky)"/>
+  <circle cx="200" cy="186" r="70" fill="url(#sun)"/>
+  <circle cx="200" cy="186" r="15" fill="#fff4d6" opacity=".95"/>
+  <!-- soft clouds -->
+  <g fill="#fff8ec" opacity=".7">
+    <ellipse cx="80" cy="120" rx="46" ry="6"/><ellipse cx="110" cy="114" rx="26" ry="5"/>
+    <ellipse cx="320" cy="132" rx="52" ry="6"/><ellipse cx="292" cy="126" rx="24" ry="4"/>
+  </g>
+  <!-- birds -->
+  <g stroke="#9a7a5a" stroke-width=".9" fill="none" stroke-linecap="round" opacity=".7">
+    <path d="M258 100 q4 -4 7 0 q3 -4 7 0"/><path d="M276 92 q3 -3 5 0 q2 -3 5 0"/><path d="M120 92 q3 -3 5 0 q2 -3 5 0"/>
+  </g>
+
+  <!-- sea -->
+  <rect y="186" width="400" height="44" fill="url(#sea)"/>
+  <rect x="186" y="187" width="28" height="40" fill="#fff4d6" opacity=".35"/>
+  <g stroke="#fff8e8" stroke-linecap="round" opacity=".75">
+    <path d="M190 192 h20 M184 198 h32 M192 204 h16 M180 210 h40 M188 217 h24" stroke-width="1.1"/>
+    <path d="M30 196 h22 M330 200 h26 M70 212 h30 M290 216 h34 M12 222 h24 M360 222 h22" stroke-width=".8" opacity=".7"/>
+  </g>
+  <!-- shoreline foam -->
+  <path d="M0 228 C40 222 70 232 110 226 C150 220 170 232 210 227 C250 222 280 232 320 226 C350 222 380 230 400 226 V236 H0Z" fill="#fbf5e8" opacity=".9"/>
+
+  <!-- sand -->
+  <path d="M0 232 C60 228 120 236 200 232 C280 228 340 236 400 232 V300 H0Z" fill="url(#sand)"/>
+  <g fill="#c9a571" opacity=".35"><circle cx="40" cy="262" r="1"/><circle cx="90" cy="280" r="1"/><circle cx="330" cy="270" r="1"/><circle cx="360" cy="288" r="1"/><circle cx="60" cy="292" r="1"/></g>
+  <!-- seashells -->
+  <g fill="#f7e7d3" stroke="#c99f7a" stroke-width=".6">
+    <path d="M56 270 q6 -10 12 0 q-6 3 -12 0Z"/><path d="M348 278 q5 -8 10 0 q-5 2 -10 0Z"/>
+  </g>
+
+  <!-- palms -->
+  <use href="#palm" transform="translate(22 262) scale(1.15)"/>
+  <use href="#palm" transform="translate(60 250) scale(.8)"/>
+  <use href="#palm" transform="translate(378 262) scale(-1.15 1.15)"/>
+  <use href="#palm" transform="translate(342 252) scale(-.78 .78)"/>
+
+  <!-- mandap -->
+  <g transform="translate(200 0)">
+    <!-- platform -->
+    <path d="M-92 262 h184 l8 10 h-200Z" fill="#efe0c4"/>
+    <path d="M-100 272 h200 l6 8 h-212Z" fill="#e2cda6"/>
+    <rect x="-92" y="258" width="184" height="5" fill="url(#gold)"/>
+    <!-- back drape -->
+    <path d="M-70 166 h140 v92 h-140Z" fill="url(#drape)" opacity=".92"/>
+    <path d="M-70 166 q12 40 0 92 M-46 166 q8 46 -2 92 M-22 166 q6 46 -2 92 M2 166 q6 46 0 92 M26 166 q-6 46 2 92 M50 166 q-8 46 2 92" stroke="#e7d4b0" stroke-width="1" fill="none"/>
+    <!-- seats -->
+    <path d="M-28 236 h22 v20 h-22Z M6 236 h22 v20 h-22Z" fill="#b9312e"/>
+    <path d="M-30 232 h26 l-2 6 h-22Z M4 232 h26 l-2 6 h-22Z" fill="url(#gold)"/>
+    <!-- pillars -->
+    <g fill="url(#gold)">
+      <rect x="-86" y="160" width="8" height="98"/><rect x="78" y="160" width="8" height="98"/>
+      <rect x="-60" y="166" width="5" height="92" opacity=".8"/><rect x="55" y="166" width="5" height="92" opacity=".8"/>
+      <rect x="-89" y="250" width="14" height="8"/><rect x="75" y="250" width="14" height="8"/>
+    </g>
+    <g fill="#f6b52e"><circle cx="-82" cy="190" r="2"/><circle cx="-82" cy="210" r="2"/><circle cx="-82" cy="230" r="2"/><circle cx="82" cy="190" r="2"/><circle cx="82" cy="210" r="2"/><circle cx="82" cy="230" r="2"/></g>
+    <!-- canopy -->
+    <path d="M-98 162 h196 l-8 -10 h-180Z" fill="url(#gold)"/>
+    <path d="M-90 152 C-60 128 -30 118 0 112 C30 118 60 128 90 152Z" fill="#fbf1de"/>
+    <path d="M-90 152 C-60 128 -30 118 0 112 C30 118 60 128 90 152" fill="none" stroke="url(#gold)" stroke-width="2.4"/>
+    <path d="M-60 140 C-40 126 -20 120 0 117 C20 120 40 126 60 140" fill="none" stroke="#e8c579" stroke-width="1"/>
+    <!-- kalasam -->
+    <path d="M-6 112 q6 -14 12 0Z" fill="url(#goldV)"/>
+    <circle cy="98" r="4" fill="url(#goldV)"/>
+    <path d="M0 90 v-6" stroke="#b8862f" stroke-width="1.6"/>
+    <!-- front swag drapes -->
+    <path d="M-86 162 q43 26 86 0 q43 26 86 0 v6 q-43 26 -86 0 q-43 26 -86 0Z" fill="#fffaf0"/>
+    <path d="M-86 162 q43 26 86 0 q43 26 86 0" fill="none" stroke="#e7cf9e" stroke-width="1"/>
+    <!-- marigold garland swags -->
+    <path d="M-86 166 q43 30 86 0 q43 30 86 0" fill="none" stroke="#f09a1e" stroke-width="3.4" stroke-dasharray=".1 4" stroke-linecap="round"/>
+    <path d="M-86 168 q43 30 86 0 q43 30 86 0" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray=".1 4" stroke-linecap="round" opacity=".9"/>
+    <!-- hanging strings -->
+    <use href="#marigold-string" transform="translate(-86 168)"/>
+    <use href="#marigold-string" transform="translate(86 168)"/>
+    <use href="#marigold-string" transform="translate(0 168) scale(.8)"/>
+    <use href="#marigold-string" transform="translate(-43 184) scale(.7)"/>
+    <use href="#marigold-string" transform="translate(43 184) scale(.7)"/>
+    <!-- side drapes tied to pillars -->
+    <path d="M-86 168 q-6 40 6 70 q4 6 -2 18 h-10 q-4 -50 6 -88Z" fill="#fffaf0" opacity=".95"/>
+    <path d="M86 168 q6 40 -6 70 q-4 6 2 18 h10 q4 -50 -6 -88Z" fill="#fffaf0" opacity=".95"/>
+    <!-- lamps -->
+    <use href="#lamp" transform="translate(-104 286) scale(1.2)"/>
+    <use href="#lamp" transform="translate(104 286) scale(1.2)"/>
+    <!-- banana plants -->
+    <use href="#banana" transform="translate(-118 262)"/>
+    <use href="#banana" transform="translate(118 262) scale(-1 1)"/>
+    <!-- flower urli -->
+    <ellipse cx="0" cy="288" rx="18" ry="4" fill="url(#gold)"/>
+    <g fill="#f6b52e"><circle cx="-8" cy="286" r="2.4"/><circle cx="0" cy="285" r="2.6" fill="#c9302c"/><circle cx="8" cy="286" r="2.4"/><circle cx="-4" cy="284" r="1.6" fill="#fff"/><circle cx="4" cy="284" r="1.6" fill="#fff"/></g>
+  </g>
+  <!-- petals on sand -->
+  <g fill="#f09a1e" opacity=".75">
+    <circle cx="150" cy="292" r="1.4"/><circle cx="252" cy="294" r="1.4"/><circle cx="170" cy="298" r="1.2" fill="#c9302c"/><circle cx="236" cy="290" r="1.2" fill="#fff"/>
+  </g>
+</svg>

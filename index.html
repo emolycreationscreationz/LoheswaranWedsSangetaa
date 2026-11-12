@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5ead8" />
+  <title>Loheswaran &amp; Sangetaa | Wedding Invitation</title>
+  <meta name="description" content="With joyful hearts, we invite you to celebrate the wedding of Loheswaran and Sangetaa." />
+
+  <!-- WhatsApp / social preview: after deploying, change og:image to the full URL -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Loheswaran &amp; Sangetaa | Wedding Invitation" />
+  <meta property="og:description" content="You are invited to celebrate the wedding of Loheswaran and Sangetaa." />
+  <meta property="og:image" content="assets/art/beach-mandap.svg" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235a0f17'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='26' fill='%23e8c579'%3EL%26amp;S%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=1" />
+</head>
+<body class="is-locked">
+
+  <!-- ============ OPENING: TEMPLE DOORS ============ -->
+  <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Open the wedding invitation">
+    <div class="gate__frame">
+      <div class="gate__arch" aria-hidden="true">
+        <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="archGold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f6dc93"/><stop offset=".5" stop-color="#d9a945"/><stop offset="1" stop-color="#9c6b1f"/>
+            </linearGradient>
+          </defs>
+          <path d="M0 120 V60 C60 60 90 8 200 6 C310 8 340 60 400 60 V120 Z" fill="url(#archGold)"/>
+          <path d="M20 120 V70 C80 70 105 22 200 20 C295 22 320 70 380 70 V120" fill="none" stroke="#fff1c4" stroke-width="2" opacity=".7"/>
+          <path d="M34 120 V78 C92 78 115 34 200 32 C285 34 308 78 366 78 V120" fill="none" stroke="#8a5a14" stroke-width="2" opacity=".5"/>
+        </svg>
+        <span class="gate__crest">
+          <svg viewBox="0 0 60 60"><path d="M30 4 C38 16 46 20 56 22 C46 26 40 36 30 56 C20 36 14 26 4 22 C14 20 22 16 30 4Z" fill="#fbe7a8" stroke="#9c6b1f" stroke-width="1.5"/><circle cx="30" cy="27" r="6" fill="#b33a2e"/></svg>
+        </span>
+      </div>
+
+      <div class="gate__opening">
+        <div class="gate__thoranam" aria-hidden="true"></div>
+        <div class="gate__door gate__door--left" aria-hidden="true"><span class="door__lotus"></span></div>
+        <div class="gate__door gate__door--right" aria-hidden="true"><span class="door__lotus"></span></div>
+
+        <div class="gate__content">
+          <span class="ornament ornament--light">◇</span>
+          <p class="eyebrow eyebrow--gold">With all our hearts</p>
+          <span class="ornament ornament--light">◆</span>
+          <h1 class="gate__title">You are invited</h1>
+          <p class="gate__sub">to celebrate with us</p>
+          <p class="gate__date" data-bind="dateShort"></p>
+          <button class="btn btn--gold gate__btn" id="openGate" type="button">
+            <span>✦</span> Open Invitation <span>✦</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="gate__lamp gate__lamp--left" aria-hidden="true"></div>
+      <div class="gate__lamp gate__lamp--right" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- music toggle -->
+  <button class="music" id="musicBtn" type="button" aria-label="Play or pause music" hidden>
+    <span></span><span></span><span></span>
+  </button>
+  <audio id="bgm" preload="none" loop></audio>
+
+  <main class="page">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="thoranam" aria-hidden="true"></div>
+      <div class="pillar pillar--left" aria-hidden="true"></div>
+      <div class="pillar pillar--right" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="hero__quote reveal" data-bind="quote"></p>
+        <h2 class="hero__names reveal">
+          <span class="hero__name" data-bind="groom.short"></span>
+          <span class="hero__weds">Weds</span>
+          <span class="hero__name" data-bind="bride.short"></span>
+        </h2>
+        <div class="countdown reveal" id="countdown" aria-label="Countdown to the wedding">
+          <div><b data-cd="d">00</b><small>Days</small></div>
+          <div><b data-cd="h">00</b><small>Hours</small></div>
+          <div><b data-cd="m">00</b><small>Min</small></div>
+          <div><b data-cd="s">00</b><small>Sec</small></div>
+        </div>
+      </div>
+      <div class="hero__scene" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ HIDDEN MESSAGE ============ -->
+    <section class="message" id="message">
+      <div class="message__bg" aria-hidden="true"></div>
+      <div class="message__inner">
+        <p class="eyebrow eyebrow--light reveal">A moment made complete by you</p>
+        <h2 class="message__title reveal">With Grateful Hearts</h2>
+
+        <div class="envelope reveal" id="envelope">
+          <button class="envelope__cover" type="button" id="envelopeBtn" aria-label="Tap to open our message">
+            <span class="envelope__open">Open</span>
+            <span class="eyebrow">A message for you</span>
+          </button>
+          <div class="envelope__letter" aria-live="polite">
+            <p class="eyebrow">To our dearest family &amp; friends</p>
+            <p class="envelope__text" data-bind="message"></p>
+            <p class="envelope__sign">With love, <span data-bind="couple"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAMILIES ============ -->
+    <section class="families paper">
+      <div class="thoranam thoranam--frame" aria-hidden="true"></div>
+      <div class="families__inner">
+        <p class="eyebrow reveal">With the blessings of</p>
+        <h2 class="section-title reveal">Our Families</h2>
+        <span class="flourish reveal" aria-hidden="true"></span>
+        <p class="lede reveal" data-bind="familiesIntro"></p>
+
+        <div class="person reveal">
+          <p class="eyebrow">The Groom</p>
+          <h3 class="person__name" data-bind="groom.full"></h3>
+          <span class="flourish flourish--sm" aria-hidden="true"></span>
+          <p class="person__rel" data-bind="groom.relation"></p>
+          <p class="person__parents" data-bind-html="groom.parentsHtml"></p>
+          <p class="person__home" data-bind="groom.hometown"></p>
+        </div>
+
+        <p class="and reveal">And</p>
+
+        <div class="person reveal">
+          <p class="eyebrow">The Bride</p>
+          <h3 class="person__name" data-bind="bride.full"></h3>
+          <span class="flourish flourish--sm" aria-hidden="true"></span>
+          <p class="person__rel" data-bind="bride.relation"></p>
+          <p class="person__parents" data-bind-html="bride.parentsHtml"></p>
+          <p class="person__home" data-bind="bride.hometown"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE WEDDING ============ -->
+    <section class="wedding">
+      <div class="wedding__scene" aria-hidden="true"></div>
+      <div class="wedding__inner">
+        <h2 class="section-title section-title--xl reveal">The Wedding</h2>
+        <p class="lede lede--italic reveal" data-bind="wedding.subtitle"></p>
+
+        <p class="eyebrow reveal">Location</p>
+        <h3 class="city reveal" data-bind="wedding.city"></h3>
+
+        <div class="schedule glass reveal" id="weddingSchedule"></div>
+
+        <div class="venue glass reveal">
+          <p class="eyebrow">Wedding Venue</p>
+          <h3 class="venue__name" data-bind="wedding.venue.name"></h3>
+          <p class="venue__addr"><i class="ico ico--pin"></i><span data-bind="wedding.venue.address"></span></p>
+          <a class="btn btn--maroon" data-href="wedding.venue.mapsUrl" target="_blank" rel="noopener">
+            <i class="ico ico--nav"></i> Get Directions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE RECEPTION ============ -->
+    <section class="reception" id="reception">
+      <div class="reception__lights" aria-hidden="true"></div>
+      <div class="reception__inner">
+        <h2 class="section-title section-title--xl section-title--light reveal" data-bind="reception.title"></h2>
+        <p class="lede lede--italic lede--light reveal" data-bind="reception.subtitle"></p>
+
+        <p class="eyebrow eyebrow--gold reveal">Join us in</p>
+        <h3 class="city city--light reveal" data-bind="reception.city"></h3>
+
+        <div class="schedule schedule--dark reveal" id="receptionSchedule"></div>
+
+        <div class="venue venue--dark reveal">
+          <p class="eyebrow eyebrow--gold">Venue</p>
+          <h3 class="venue__name" data-bind="reception.venue.name"></h3>
+          <p class="venue__addr"><i class="ico ico--pin"></i><span data-bind="reception.venue.address"></span></p>
+          <a class="btn btn--gold" data-href="reception.venue.mapsUrl" target="_blank" rel="noopener">
+            <i class="ico ico--nav"></i> Get Directions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THANK YOU ============ -->
+    <section class="thanks">
+      <div class="thanks__inner">
+        <span class="thanks__heart" aria-hidden="true">♥</span>
+        <p class="eyebrow reveal">With grateful hearts</p>
+        <h2 class="section-title section-title--xl reveal">Thank You</h2>
+        <span class="flourish reveal" aria-hidden="true"></span>
+        <p class="lede lede--italic reveal" data-bind="thankYou"></p>
+        <p class="thanks__sign reveal">With love, <span data-bind="couple"></span></p>
+        <p class="pill reveal">Our families look forward to welcoming you</p>
+      </div>
+      <footer class="credit">
+        Made with <span>♥</span> by <b>Emoly Creations</b>
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/config.js?v=1"></script>
+  <script src="js/app.js?v=1"></script>
+</body>
+</html>
