@@ -461,7 +461,20 @@ a { color: inherit; }
 .btn-line:hover { background: rgba(227, 189, 120, .15); color: #fff4dc; }
 .btn-line:active { transform: scale(.97); }
 
+@media (max-width: 899px) {
+  .venue-page {
+    min-height: max(100svh, 179vw);
+    padding-top: calc(31vw + .5rem);
+    background:
+      linear-gradient(180deg, rgba(58, 7, 13, .25) 0%, rgba(58, 7, 13, 0) 40%),
+      url("../assets/backgrounds/venue-mobile.webp") center bottom / cover no-repeat,
+      #4a0c14;
+  }
+}
 @media (max-width: 480px) {
+  .venue-page__label { font-size: .66rem; letter-spacing: .24em; }
+  .venue-page__name { font-size: clamp(2rem, 9vw, 2.6rem); margin: .7rem 0 .4rem; }
+  .venue-page__btns { margin-top: 1.2rem; }
   .venue-page__btns { gap: .6rem; flex-wrap: nowrap; }
   .btn-line { min-width: 0; flex: 1 1 0; max-width: 170px; padding: .8rem .6rem; font-size: .66rem; letter-spacing: .14em; gap: .45rem; }
 }
