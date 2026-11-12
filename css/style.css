@@ -289,6 +289,15 @@ a { color: inherit; }
 .hero.has-photo .pillar,
 .hero.has-photo .thoranam { display: none; }
 .hero.has-photo .hero__inner { flex: 1; }
+@media (max-width: 899px) {
+  /* keep the mandap dome clear of the countdown on shorter phones */
+  .hero.has-photo { min-height: max(100svh, 770px); }
+  .hero.has-photo .hero__inner { padding: 4.2rem 2.4rem 0; }
+  .hero.has-photo .hero__quote { font-size: .95rem; max-width: 18rem; margin-bottom: .7rem; }
+  .hero.has-photo .hero__name { font-size: clamp(2.4rem, 12vw, 3.3rem); }
+  .hero.has-photo .hero__weds { font-size: 2rem; }
+  .hero.has-photo .countdown { margin-top: 1.2rem; }
+}
 .hero__inner {
   position: relative; z-index: 4;
   padding: 5.6rem 2.6rem 0; text-align: center;
@@ -328,6 +337,10 @@ a { color: inherit; }
     display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
   .hero.has-photo .hero__inner { flex: none; }
+  .hero.has-photo::after {   /* soft haze behind the names */
+    content: ""; position: absolute; z-index: 1; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 30% 45% at 31% 50%, rgba(251, 240, 218, .55), transparent 70%);
+  }
   .hero__quote { font-size: 1.3rem; max-width: 22rem; margin-bottom: 2.2rem; }
   .hero__name { font-size: clamp(4rem, 5.6vw, 6rem); }
   .hero__weds { font-size: clamp(2.6rem, 3vw, 3.4rem); margin: .2rem 0 .4rem; }
