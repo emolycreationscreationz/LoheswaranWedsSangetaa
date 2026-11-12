@@ -16,50 +16,31 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235a0f17'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Georgia' font-size='26' fill='%23e8c579'%3EL%26amp;S%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=33" />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=35" />
 </head>
 <body class="is-locked">
 
   <!-- ============ OPENING: TEMPLE DOORS ============ -->
   <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Open the wedding invitation">
-    <div class="gate__frame">
-      <div class="gate__arch" aria-hidden="true">
-        <svg viewBox="0 0 400 120" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="archGold" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f6dc93"/><stop offset=".5" stop-color="#d9a945"/><stop offset="1" stop-color="#9c6b1f"/>
-            </linearGradient>
-          </defs>
-          <path d="M0 120 V60 C60 60 90 8 200 6 C310 8 340 60 400 60 V120 Z" fill="url(#archGold)"/>
-          <path d="M20 120 V70 C80 70 105 22 200 20 C295 22 320 70 380 70 V120" fill="none" stroke="#fff1c4" stroke-width="2" opacity=".7"/>
-          <path d="M34 120 V78 C92 78 115 34 200 32 C285 34 308 78 366 78 V120" fill="none" stroke="#8a5a14" stroke-width="2" opacity=".5"/>
-        </svg>
-        <span class="gate__crest">
-          <svg viewBox="0 0 60 60"><path d="M30 4 C38 16 46 20 56 22 C46 26 40 36 30 56 C20 36 14 26 4 22 C14 20 22 16 30 4Z" fill="#fbe7a8" stroke="#9c6b1f" stroke-width="1.5"/><circle cx="30" cy="27" r="6" fill="#b33a2e"/></svg>
-        </span>
-      </div>
+    <link rel="preload" as="image" href="assets/backgrounds/doors.webp">
+    <div class="gate__stage" aria-hidden="true">
+      <div class="gate__light"><span class="gate__rays"></span></div>
+      <div class="gate__door gate__door--left"></div>
+      <div class="gate__door gate__door--right"></div>
+    </div>
+    <div class="gate__dust" aria-hidden="true"></div>
+    <div class="gate__veil" aria-hidden="true"></div>
 
-      <div class="gate__opening">
-        <div class="gate__thoranam" aria-hidden="true"></div>
-        <div class="gate__door gate__door--left" aria-hidden="true"><span class="door__lotus"></span></div>
-        <div class="gate__door gate__door--right" aria-hidden="true"><span class="door__lotus"></span></div>
-
-        <div class="gate__content">
-          <span class="ornament ornament--light">◇</span>
-          <p class="eyebrow eyebrow--gold">With all our hearts</p>
-          <span class="ornament ornament--light">◆</span>
-          <h1 class="gate__title">You are invited</h1>
-          <p class="gate__sub">to celebrate with us</p>
-          <p class="gate__date" data-bind="dateShort"></p>
-          <button class="btn btn--gold gate__btn" id="openGate" type="button">
-            <span>✦</span> Open Invitation <span>✦</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="gate__lamp gate__lamp--left" aria-hidden="true"></div>
-      <div class="gate__lamp gate__lamp--right" aria-hidden="true"></div>
+    <div class="gate__content">
+      <p class="gate__eyebrow"><span>✦</span> With all our hearts <span>✦</span></p>
+      <h1 class="gate__title">You are invited</h1>
+      <p class="gate__sub">to celebrate the wedding of</p>
+      <p class="gate__names" data-bind="couple"></p>
+      <p class="gate__date" data-bind="dateShort"></p>
+      <button class="gate__btn" id="openGate" type="button">
+        <span class="gate__btn-text">Open Invitation</span>
+      </button>
     </div>
   </div>
 
@@ -287,7 +268,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=33"></script>
-  <script src="js/app.js?v=33"></script>
+  <script src="js/config.js?v=35"></script>
+  <script src="js/app.js?v=35"></script>
 </body>
 </html>

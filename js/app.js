@@ -125,12 +125,28 @@
   // ---------- opening doors ----------
   var gate = document.getElementById("gate");
   var openBtn = document.getElementById("openGate");
+  // gentle floating gold dust over the doors
+  (function () {
+    var host = gate.querySelector(".gate__dust");
+    if (!host || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    for (var i = 0; i < 26; i++) {
+      var d = document.createElement("span");
+      d.style.left = (Math.random() * 100) + "%";
+      d.style.top = (40 + Math.random() * 60) + "%";
+      d.style.setProperty("--sz", (2 + Math.random() * 4) + "px");
+      d.style.animationDuration = (8 + Math.random() * 10) + "s";
+      d.style.animationDelay = (-Math.random() * 18) + "s";
+      host.appendChild(d);
+    }
+  })();
+  requestAnimationFrame(function () { gate.classList.add("is-ready"); });
   openBtn.addEventListener("click", function () {
+    if (gate.classList.contains("is-open")) return;
     gate.classList.add("is-open");
     document.body.classList.remove("is-locked");
     playMusic();
-    setTimeout(function () { gate.classList.add("is-gone"); }, 2600);
-    setTimeout(function () { gate.remove(); }, 3600);
+    setTimeout(function () { gate.classList.add("is-gone"); }, 3000);
+    setTimeout(function () { gate.remove(); }, 4300);
   });
 
   // ---------- music ----------
