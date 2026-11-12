@@ -291,7 +291,14 @@ a { color: inherit; }
 .hero.has-photo .hero__inner { flex: 1; }
 @media (max-width: 899px) {
   /* keep the mandap dome clear of the countdown on shorter phones */
-  .hero.has-photo { min-height: max(100svh, 770px); }
+  /* the photo sits at the bottom at full width; extra sky above it holds the names */
+  .hero.has-photo { min-height: max(100svh, calc(179vw + 225px)); }
+  .hero.has-photo .hero__photo {
+    background:
+      linear-gradient(180deg, #f3ece0 0, #e6e1d4 calc(100% - 179vw), rgba(222, 219, 209, 0) calc(100% - 179vw + 210px)),
+      var(--hero-mobile) center bottom / 100% auto no-repeat;
+    background-color: #f3ece0;
+  }
   .hero.has-photo .hero__inner { padding: 4.2rem 2.4rem 0; }
   .hero.has-photo .hero__quote { font-size: .95rem; max-width: 18rem; margin-bottom: .7rem; }
   .hero.has-photo .hero__name { font-size: clamp(2.4rem, 12vw, 3.3rem); }
