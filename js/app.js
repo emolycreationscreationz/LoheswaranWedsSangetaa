@@ -24,6 +24,8 @@
     W.reception.venueHtml = lines(W.reception.venue);
   }
 
+  if (W.closing) W.closing.messageHtml = (W.closing.message || []).map(esc).join("<br>");
+
   // ---------- bind text ----------
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
@@ -33,6 +35,10 @@
   document.querySelectorAll("[data-bind-html]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind-html"));
     if (v != null) el.innerHTML = v;
+  });
+  document.querySelectorAll("[data-src-bind]").forEach(function (el) {
+    var v = get(el.getAttribute("data-src-bind"));
+    if (v) el.src = v; else el.closest(".closing__photo-wrap").remove();
   });
   document.querySelectorAll("[data-href]").forEach(function (el) {
     var v = get(el.getAttribute("data-href"));
@@ -162,8 +168,25 @@
   }
   if (!isNaN(target)) { tick(); setInterval(tick, 1000); }
 
+  // ---------- closing petals ----------
+  (function () {
+    var host = document.querySelector(".closing__petals");
+    if (!host || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var colours = ["#f6e7c8", "#e9c98a", "#f3c6b8", "#fffaf0"];
+    for (var i = 0; i < 16; i++) {
+      var p = document.createElement("span");
+      p.style.left = (Math.random() * 100) + "%";
+      p.style.background = colours[i % colours.length];
+      p.style.animationDuration = (9 + Math.random() * 8) + "s";
+      p.style.animationDelay = (-Math.random() * 16) + "s";
+      p.style.setProperty("--drift", (Math.random() * 80 - 40) + "px");
+      p.style.setProperty("--size", (6 + Math.random() * 7) + "px");
+      host.appendChild(p);
+    }
+  })();
+
   // ---------- reveal on scroll ----------
-  var items = document.querySelectorAll(".reveal");
+  var items = document.querySelectorAll(".reveal, .reveal-photo");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {

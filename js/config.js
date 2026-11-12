@@ -115,7 +115,13 @@ window.WEDDING = {
     waze: "https://waze.com/ul?q=Community%20Hall%20Sungai%20Pelek&navigate=yes"
   },
 
-  thankYou: "Your presence and blessings will make our celebration complete. We would be honoured to share this beautiful beginning with you.",
+  // --- Closing (last page) ---
+  closing: {
+    photo: "assets/photos/couple.webp",
+    message: ["I can't wait to celebrate", "our big day with you."],
+    signoff: "With love,",
+    names: "Loheswaran & Sangetaa"
+  },
 
   // --- Background music (MP3 in assets/music/). Leave empty to hide the button. ---
   music: "",
