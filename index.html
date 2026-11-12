@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=6" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 <body class="is-locked">
 
@@ -95,40 +95,20 @@
       <div class="hero__scene" aria-hidden="true"></div>
     </section>
 
-    <!-- ============ HIDDEN MESSAGE ============ -->
-    <section class="message" id="message">
-      <div class="message__bg" aria-hidden="true"></div>
-      <div class="message__inner">
-        <p class="eyebrow eyebrow--light reveal">A moment made complete by you</p>
-        <h2 class="message__title reveal">With Grateful Hearts</h2>
-
-        <div class="envelope reveal" id="envelope">
-          <button class="envelope__cover" type="button" id="envelopeBtn" aria-label="Tap to open our message">
-            <span class="envelope__open">Open</span>
-            <span class="eyebrow">A message for you</span>
-          </button>
-          <div class="envelope__letter" aria-live="polite">
-            <p class="eyebrow">To our dearest family &amp; friends</p>
-            <p class="envelope__text" data-bind="message"></p>
-            <p class="envelope__sign">With love, <span data-bind="couple"></span></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ FAMILIES ============ -->
-    <section class="families paper">
-      <div class="thoranam thoranam--frame" aria-hidden="true"></div>
+    <section class="families">
+      <div class="families__leaves families__leaves--tl" aria-hidden="true"></div>
+      <div class="families__leaves families__leaves--br" aria-hidden="true"></div>
       <div class="families__inner">
-        <p class="eyebrow reveal">With the blessings of</p>
+        <p class="eyebrow reveal" data-bind="familiesEyebrow"></p>
         <h2 class="section-title reveal">Our Families</h2>
-        <span class="flourish reveal" aria-hidden="true"></span>
-        <p class="lede reveal" data-bind="familiesIntro"></p>
+        <span class="flourish-img reveal" aria-hidden="true"></span>
+        <p class="families__intro reveal" data-bind="familiesIntro"></p>
 
         <div class="person reveal">
           <p class="eyebrow">The Groom</p>
-          <h3 class="person__name" data-bind="groom.full"></h3>
-          <span class="flourish flourish--sm" aria-hidden="true"></span>
+          <h3 class="person__name"><span data-bind="groom.full"></span><small class="person__title" data-bind="groom.title"></small></h3>
+          <span class="flourish-img flourish-img--sm" aria-hidden="true"></span>
           <p class="person__rel" data-bind="groom.relation"></p>
           <p class="person__parents" data-bind-html="groom.parentsHtml"></p>
           <p class="person__home" data-bind="groom.hometown"></p>
@@ -138,12 +118,14 @@
 
         <div class="person reveal">
           <p class="eyebrow">The Bride</p>
-          <h3 class="person__name" data-bind="bride.full"></h3>
-          <span class="flourish flourish--sm" aria-hidden="true"></span>
+          <h3 class="person__name"><span data-bind="bride.full"></span><small class="person__title" data-bind="bride.title"></small></h3>
+          <span class="flourish-img flourish-img--sm" aria-hidden="true"></span>
           <p class="person__rel" data-bind="bride.relation"></p>
           <p class="person__parents" data-bind-html="bride.parentsHtml"></p>
           <p class="person__home" data-bind="bride.hometown"></p>
         </div>
+
+        <span class="flourish-img reveal" aria-hidden="true"></span>
       </div>
     </section>
 
@@ -210,7 +192,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=4"></script>
-  <script src="js/app.js?v=3"></script>
+  <script src="js/config.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
 </body>
 </html>

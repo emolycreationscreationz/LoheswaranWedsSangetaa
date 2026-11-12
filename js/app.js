@@ -21,7 +21,8 @@
   // ---------- bind text ----------
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
-    if (v != null) el.textContent = v;
+    if (v != null && v !== "") el.textContent = v;
+    else if (el.matches(".person__home, .person__title, .eyebrow")) el.remove();
   });
   document.querySelectorAll("[data-bind-html]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind-html"));
@@ -127,12 +128,6 @@
     cd.s.textContent = pad(s % 60);
   }
   if (!isNaN(target)) { tick(); setInterval(tick, 1000); }
-
-  // ---------- envelope ----------
-  var env = document.getElementById("envelope");
-  document.getElementById("envelopeBtn").addEventListener("click", function () {
-    env.classList.add("is-open");
-  });
 
   // ---------- reveal on scroll ----------
   var items = document.querySelectorAll(".reveal");

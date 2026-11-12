@@ -2,26 +2,28 @@
  * ============================================================
  *  WEDDING SETTINGS: edit this file to change the card's text
  * ============================================================
- *  Names, dates, events, venues, message and music all come from here.
+ *  Names, dates, events, venues, music and families all come from here.
  *  Anything marked [TBC] is a placeholder waiting for the client's details.
  */
 window.WEDDING = {
   // --- Couple ---
   groom: {
     short: "Loheswaran",
-    full: "Loheswaran",                       // [TBC] full name, e.g. "Loheswaran S"
+    full: "Loheswaran",
+    title: "",                                // e.g. "B.Eng." (shown small after the name)
     relation: "Son of",
-    father: "Mr. Father's Name",              // [TBC]
-    mother: "Mrs. Mother's Name",             // [TBC]
-    hometown: "Hometown, Malaysia"            // [TBC]
+    father: "Mr. Ganesan",
+    mother: "Mrs. Lee Siew Chen",
+    hometown: ""                              // optional, e.g. "Ipoh, Perak". Leave empty to hide.
   },
   bride: {
     short: "Sangetaa",
-    full: "Sangetaa",                         // [TBC] full name
+    full: "Sangetaa",
+    title: "M.Ed.",
     relation: "Daughter of",
-    father: "Mr. Father's Name",              // [TBC]
-    mother: "Mrs. Mother's Name",             // [TBC]
-    hometown: "Hometown, Malaysia"            // [TBC]
+    father: "Late Mr. Subramaniam",
+    mother: "Mrs. Meenachi",
+    hometown: ""
   },
 
   quote: "“A Love Written by the Waves...”",
@@ -39,10 +41,9 @@ window.WEDDING = {
     mobile: "assets/hero/hero-mobile.webp"
   },
 
-  // --- Hidden message card ---
-  message: "Some moments become memories because of the people who share them. As we step into this beautiful new chapter, it would mean the world to have you beside us — blessing our beginning, sharing our joy, and making our celebration complete.",
-
-  familiesIntro: "With joyful hearts, we invite you to celebrate our wedding",
+  // --- Our Families ---
+  familiesEyebrow: "Together with their families",
+  familiesIntro: "With full hearts, we invite you to their wedding",
 
   // --- The Wedding ---
   // icon: "family" | "ring" | "mandap" | "sparkle" | "food"
