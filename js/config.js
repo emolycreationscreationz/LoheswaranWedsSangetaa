@@ -29,8 +29,8 @@ window.WEDDING = {
   quote: "“A Love Written by the Waves...”",
 
   // --- Dates ---
-  dateShort: "DD · MM · 2027",                 // [TBC] shown on the opening doors
-  countdownTo: "2027-01-24T09:00:00+08:00",    // [TBC] muhurtham start, Malaysia time (+08:00)
+  dateShort: "13 · 12 · 2026",                 // shown on the opening doors
+  countdownTo: "2026-12-13T19:31:00+08:00",    // reception, 7:31 PM Malaysia time (+08:00)
 
   // --- Hero background photo ---
   // Wide image for desktop (16:9, e.g. 1920x1080) and tall image for phones (9:16, e.g. 1080x1920).
@@ -77,6 +77,8 @@ window.WEDDING = {
 
   // --- The Wedding ---
   // icon: "family" | "ring" | "mandap" | "sparkle" | "food"
+  // Set showWedding: true once the ceremony details below are confirmed.
+  showWedding: false,
   wedding: {
     subtitle: "Join us by the sea as the celebrations begin and two hearts become one.",
     city: "City",                                                   // [TBC]

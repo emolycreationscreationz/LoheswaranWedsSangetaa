@@ -72,7 +72,9 @@
         '<div class="day__events">' + evs + '</div></div>';
     }).join("");
   }
-  renderSchedule("weddingSchedule", W.wedding);
+  if (W.showWedding === false || !W.wedding) {
+    var wsec = document.querySelector("section.wedding"); if (wsec) wsec.remove();
+  } else renderSchedule("weddingSchedule", W.wedding);
   if (!W.reception) { var r = document.getElementById("reception"); if (r) r.remove(); }
 
   // ---------- dress code ----------
