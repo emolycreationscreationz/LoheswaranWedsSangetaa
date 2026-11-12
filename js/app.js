@@ -139,14 +139,23 @@
       host.appendChild(d);
     }
   })();
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
   requestAnimationFrame(function () { gate.classList.add("is-ready"); });
   openBtn.addEventListener("click", function () {
     if (gate.classList.contains("is-open")) return;
     gate.classList.add("is-open");
-    document.body.classList.remove("is-locked");
+    window.scrollTo(0, 0);
     playMusic();
-    setTimeout(function () { gate.classList.add("is-gone"); }, 3000);
-    setTimeout(function () { gate.remove(); }, 4300);
+    // land directly on page 1: it fades in through the doorway and its words rise in
+    setTimeout(function () {
+      document.body.classList.remove("is-locked");
+      document.body.classList.add("is-entering");
+      gate.classList.add("is-gone");
+      window.scrollTo(0, 0);
+      if (window.__startReveal) window.__startReveal();
+    }, 2300);
+    setTimeout(function () { gate.remove(); document.body.classList.remove("is-entering"); }, 4200);
   });
 
   // ---------- music ----------
@@ -268,16 +277,40 @@
     }
   })();
 
-  // ---------- reveal on scroll ----------
-  var items = document.querySelectorAll(".reveal, .reveal-photo");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    items.forEach(function (el) { io.observe(el); });
-  } else {
-    items.forEach(function (el) { el.classList.add("is-in"); });
+  // ---------- page frames ----------
+  document.querySelectorAll("main > section").forEach(function (sec) {
+    var f = document.createElement("div");
+    f.className = "page-frame"; f.setAttribute("aria-hidden", "true");
+    f.innerHTML = '<i class="pf pf--tl"></i><i class="pf pf--tr"></i><i class="pf pf--bl"></i><i class="pf pf--br"></i>';
+    sec.appendChild(f);
+  });
+
+  // ---------- reveal on scroll (starts when the doors open) ----------
+  function startReveal() {
+    var items = document.querySelectorAll(".reveal, .reveal-photo");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+      items.forEach(function (el) { io.observe(el); });
+      // safety net: anything already scrolled past (fast swipe, jump) is shown too
+      var ticking = false;
+      window.addEventListener("scroll", function () {
+        if (ticking) return; ticking = true;
+        requestAnimationFrame(function () {
+          ticking = false;
+          var limit = window.innerHeight;
+          document.querySelectorAll(".reveal:not(.is-in), .reveal-photo:not(.is-in)").forEach(function (el) {
+            if (el.getBoundingClientRect().top < limit) { el.classList.add("is-in"); io.unobserve(el); }
+          });
+        });
+      }, { passive: true });
+    } else {
+      items.forEach(function (el) { el.classList.add("is-in"); });
+    }
   }
+  if (!document.getElementById("gate")) startReveal();
+  else window.__startReveal = startReveal;
 })();
