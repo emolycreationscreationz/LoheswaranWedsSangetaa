@@ -168,6 +168,56 @@
   }
   if (!isNaN(target)) { tick(); setInterval(tick, 1000); }
 
+  // ---------- RSVP ----------
+  (function () {
+    var cfg = W.rsvp, form = document.getElementById("rsvpForm");
+    if (!cfg || !form) { var sec = document.getElementById("rsvp"); if (sec && !cfg) sec.remove(); return; }
+    var paxSel = document.getElementById("rsvpPax");
+    var opts = '<option value="" disabled selected>Select</option>';
+    for (var i = 1; i <= (cfg.maxPax || 10); i++) opts += '<option value="' + i + '">' + i + (i === 1 ? " person" : " people") + '</option>';
+    paxSel.innerHTML = opts;
+
+    var err = document.getElementById("rsvpError"), btn = document.getElementById("rsvpSubmit");
+    var thanks = document.getElementById("rsvpThanks");
+    function fail(msg) { err.textContent = msg; err.hidden = false; }
+    form.addEventListener("input", function () { err.hidden = true; });
+    form.addEventListener("change", function () { err.hidden = true; });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      err.hidden = true;
+      var f = form.elements;
+      var data = {
+        name: f.name.value.trim(),
+        phone: f.phone.value.trim(),
+        pax: f.pax.value,
+        meal: (form.querySelector('input[name="meal"]:checked') || {}).value || "",
+        wishes: f.wishes.value.trim()
+      };
+      if (!data.name) return fail("Please enter your name."), f.name.focus();
+      if (!/^[+\d][\d\s-]{6,}$/.test(data.phone)) return fail("Please enter a valid phone number."), f.phone.focus();
+      if (!data.pax) return fail("Please choose the number of pax."), f.pax.focus();
+      if (!data.meal) return fail("Please choose a meal preference.");
+
+      btn.disabled = true; btn.textContent = "Sending...";
+      var done = function () {
+        form.hidden = true; thanks.hidden = false; thanks.focus();
+        var intro = document.querySelector(".rsvp__intro"); if (intro) intro.hidden = true;
+      };
+      if (!cfg.apiUrl) { setTimeout(done, 600); return; }   // demo mode
+      fetch(cfg.apiUrl, { method: "POST", body: JSON.stringify(data) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && res.ok) done();
+          else throw new Error(res && res.error);
+        })
+        .catch(function () {
+          fail("Sorry, something went wrong. Please try again.");
+          btn.disabled = false; btn.textContent = "Send RSVP";
+        });
+    });
+  })();
+
   // ---------- closing petals ----------
   (function () {
     var host = document.querySelector(".closing__petals");

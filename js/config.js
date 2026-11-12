@@ -115,6 +115,17 @@ window.WEDDING = {
     waze: "https://waze.com/ul?q=Community%20Hall%20Sungai%20Pelek&navigate=yes"
   },
 
+  // --- RSVP ---
+  // apiUrl: the Google Apps Script Web App URL (see google-apps-script/Code.gs).
+  // While empty, the form runs in demo mode (nothing is saved).
+  rsvp: {
+    apiUrl: "",
+    eyebrow: "Kindly Respond",
+    intro: "Please let us know if you can join us.",   // e.g. add "by 30 November 2026"
+    maxPax: 10,
+    thanks: "Your RSVP has been received. We can't wait to celebrate with you!"
+  },
+
   // --- Closing (last page) ---
   closing: {
     photo: "assets/photos/couple.webp",

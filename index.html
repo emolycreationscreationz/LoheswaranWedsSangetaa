@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=28" />
+  <link rel="stylesheet" href="css/style.css?v=30" />
 </head>
 <body class="is-locked">
 
@@ -208,6 +208,54 @@
       </div>
     </section>
 
+    <!-- ============ RSVP ============ -->
+    <section class="rsvp" id="rsvp">
+      <div class="rsvp__inner rsvp__card reveal">
+        <span class="closing__corner closing__corner--tl" aria-hidden="true"></span>
+        <span class="closing__corner closing__corner--tr" aria-hidden="true"></span>
+        <span class="closing__corner closing__corner--bl" aria-hidden="true"></span>
+        <span class="closing__corner closing__corner--br" aria-hidden="true"></span>
+        <p class="rsvp__eyebrow" data-bind="rsvp.eyebrow"></p>
+        <h2 class="rsvp__title">RSVP</h2>
+        <span class="flourish-img" aria-hidden="true"></span>
+        <p class="rsvp__intro" data-bind="rsvp.intro"></p>
+
+        <form class="rsvp__form" id="rsvpForm" novalidate>
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="Your full name">
+          </label>
+          <label class="field">
+            <span>Phone Number</span>
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="e.g. 012-345 6789">
+          </label>
+          <label class="field">
+            <span>Number of Pax</span>
+            <select name="pax" required id="rsvpPax"></select>
+          </label>
+          <fieldset class="field field--choice">
+            <legend>Meal Preference</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="meal" value="Vegetarian" required><span>Vegetarian</span></label>
+              <label class="choice"><input type="radio" name="meal" value="Non-Vegetarian"><span>Non-Vegetarian</span></label>
+            </div>
+          </fieldset>
+          <label class="field">
+            <span>Wishes for the Couple</span>
+            <textarea name="wishes" rows="3" maxlength="500" placeholder="Share your blessings..."></textarea>
+          </label>
+          <p class="rsvp__error" id="rsvpError" role="alert" hidden></p>
+          <button class="btn btn--gold rsvp__submit" type="submit" id="rsvpSubmit">Send RSVP</button>
+        </form>
+
+        <div class="rsvp__thanks" id="rsvpThanks" hidden tabindex="-1">
+          <span class="rsvp__check" aria-hidden="true">✓</span>
+          <h3>Thank you!</h3>
+          <p data-bind="rsvp.thanks"></p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CLOSING (last page) ============ -->
     <section class="closing" id="closing">
       <div class="closing__leaves closing__leaves--tl" aria-hidden="true"></div>
@@ -239,7 +287,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=28"></script>
-  <script src="js/app.js?v=28"></script>
+  <script src="js/config.js?v=30"></script>
+  <script src="js/app.js?v=30"></script>
 </body>
 </html>
