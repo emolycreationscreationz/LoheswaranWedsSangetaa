@@ -787,6 +787,9 @@ a { color: inherit; }
   font-size: clamp(1.6rem, 7vw, 3.4rem); line-height: 1.1; color: #ffffff; padding-left: .2em; white-space: nowrap;
   text-shadow: 0 2px 18px rgba(0, 0, 0, .55);
 }
+.reception__heading { display: flex; flex-direction: column; align-items: center; white-space: normal; }
+.reception__the { font-size: .52em; letter-spacing: .5em; padding-left: .5em; margin-bottom: .15em; color: #f6e2b6; }
+.reception__word { font-size: 1.12em; }
 .reception__flourish { filter: brightness(1.35); margin: .7rem auto 1.4rem; }
 .reception__intro {
   font-family: var(--f-display); font-style: italic; font-size: clamp(1.15rem, 4.6vw, 1.6rem); line-height: 1.45;
