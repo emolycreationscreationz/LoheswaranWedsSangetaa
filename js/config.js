@@ -123,7 +123,8 @@ window.WEDDING = {
   rsvp: {
     apiUrl: "https://script.google.com/macros/s/AKfycbz9JprZLQ6ML8rE4-4p5Yhxqn5z_QRVJvXn4Xrmr069UDSnPWAF42WEFOyKJDPWBYJN/exec",
     eyebrow: "Kindly Respond",
-    intro: "Please let us know if you can join us.",   // e.g. add "by 30 November 2026"
+    intro: "Please let us know if you can join us.",
+    deadline: "RSVP by 30th November 2026",   // leave empty to hide
     maxPax: 10,
     thanks: "Your RSVP has been received. We can't wait to celebrate with you!"
   },
