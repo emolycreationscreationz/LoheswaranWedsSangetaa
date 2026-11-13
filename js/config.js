@@ -129,7 +129,8 @@ window.WEDDING = {
     names: "Loheswaran & Sangetaa"
   },
 
-  // --- Background music (MP3 in assets/music/). Leave empty to hide the button. ---
-  music: "",
-  musicStart: 0
+  // --- Background music ---
+  // Starts when the doors open and loops forever. The file is already
+  // trimmed to begin at 0:20 of the original song. Guests get no controls.
+  music: "assets/music/reunited.mp3",
 };

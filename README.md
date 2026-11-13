@@ -31,7 +31,7 @@ Open `js/config.js`. Items marked `[TBC]` are placeholders.
 - **Countdown**: `countdownTo` in the format `2027-01-24T09:00:00+08:00`.
 - **Events**: in `wedding.days` / `reception.days`. Icons: `family`, `ring`, `mandap`, `sparkle`, `food`.
   Set `highlight: true` to emphasise the main ceremony.
-- **Music**: put the MP3 in `assets/music/` and set `music: "assets/music/song.mp3"`. The button hides when it's empty.
+- **Music**: `assets/music/reunited.mp3` (trimmed to start at 0:20 of the original). It starts when the doors open and loops; guests get no controls.
 
 ## RSVP → Google Sheets
 

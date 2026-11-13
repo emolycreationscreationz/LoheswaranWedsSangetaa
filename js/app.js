@@ -207,27 +207,40 @@
 
 
 
-  // ---------- music ----------
+  // ---------- music (plays from the doors opening, loops, no controls) ----------
   var audio = document.getElementById("bgm");
-  var musicBtn = document.getElementById("musicBtn");
-  if (W.music) {
-    audio.src = W.music;
-    musicBtn.hidden = false;
-    audio.addEventListener("error", function () { musicBtn.hidden = true; });
+  var musicOn = false;
+  if (W.music) { audio.src = W.music; audio.loop = true; }
+  function fadeIn() {
+    audio.volume = 0;
+    var v = 0, t = setInterval(function () {
+      v = Math.min(1, v + .05); audio.volume = v;
+      if (v >= 1) clearInterval(t);
+    }, 80);
   }
   function playMusic() {
     if (!W.music) return;
-    try {
-      if (W.musicStart && audio.currentTime < W.musicStart) audio.currentTime = W.musicStart;
-    } catch (e) {}
+    musicOn = true;
     var p = audio.play();
+    fadeIn();
     if (p && p.catch) p.catch(function () {});
   }
-  audio.addEventListener("play", function () { musicBtn.classList.add("is-playing"); });
-  audio.addEventListener("pause", function () { musicBtn.classList.remove("is-playing"); });
-  musicBtn.addEventListener("click", function () {
-    if (audio.paused) playMusic(); else audio.pause();
-  });
+  // keep it playing: resume if the browser pauses it or after the phone returns to the page
+  function resume() {
+    if (musicOn && audio.paused && !document.hidden) { var p = audio.play(); if (p && p.catch) p.catch(function () {}); }
+  }
+  audio.addEventListener("pause", function () { setTimeout(resume, 300); });
+  audio.addEventListener("ended", function () { audio.currentTime = 0; resume(); });
+  document.addEventListener("visibilitychange", resume);
+  window.addEventListener("pageshow", resume);
+  document.addEventListener("touchend", resume, { passive: true });
+  if ("mediaSession" in navigator) {
+    try {
+      ["pause", "stop", "seekbackward", "seekforward", "seekto", "previoustrack", "nexttrack"].forEach(function (a) {
+        navigator.mediaSession.setActionHandler(a, function () { resume(); });
+      });
+    } catch (e) {}
+  }
 
   // ---------- countdown ----------
   var target = new Date(W.countdownTo).getTime();
