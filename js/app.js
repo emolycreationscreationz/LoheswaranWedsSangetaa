@@ -30,7 +30,7 @@
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
     if (v != null && v !== "") el.textContent = v;
-    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area, .dress__note, .dress__intro, .rsvp__deadline")) el.remove();
+    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area, .rsvp__deadline")) el.remove();
   });
   document.querySelectorAll("[data-bind-html]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind-html"));
@@ -38,7 +38,7 @@
   });
   document.querySelectorAll("[data-src-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-src-bind"));
-    if (v) el.src = v; else el.closest(".closing__frame").remove();
+    if (v) el.src = v; else (el.closest(".closing__frame") || el).remove();
   });
   document.querySelectorAll("[data-href]").forEach(function (el) {
     var v = get(el.getAttribute("data-href"));
@@ -85,25 +85,30 @@
     var pal = document.getElementById("dressPalette");
     if (pal) {
       if (dc.palette && dc.palette.length) {
-        pal.innerHTML = dc.palette.map(function (c) {
-          return '<div class="swatch"><span class="swatch__dot" style="background:' + esc(c.hex) + '"></span><small>' + esc(c.name) + '</small></div>';
+        pal.innerHTML = dc.palette.map(function (c, i) {
+          return '<span class="swatch__dot" style="background:' + esc(c) + ';transition-delay:' + (i * .12) + 's"></span>';
         }).join("");
       } else pal.remove();
     }
-    var out = document.getElementById("dressOutfits");
-    if (out) {
-      out.innerHTML = (dc.outfits || []).map(function (o) {
-        var pic = o.image
-          ? '<img class="outfit__photo" src="' + esc(o.image) + '" alt="' + esc(o.label + ": " + o.title) + '" loading="lazy">'
-          : '<img class="outfit__art" src="' + esc(o.art) + '" alt="" aria-hidden="true">';
-        return '<article class="outfit reveal">' +
-          '<div class="outfit__frame">' + pic + '</div>' +
-          '<p class="eyebrow">' + esc(o.label) + '</p>' +
-          '<h3 class="outfit__title">' + esc(o.title) + '</h3>' +
-          '<p class="outfit__text">' + esc(o.text) + '</p></article>';
-      }).join("");
+    var vid = document.getElementById("dressVideo");
+    if (vid) {
+      if (!dc.video) { vid.closest("figure").remove(); }
+      else {
+        if (dc.poster) vid.poster = dc.poster;
+        vid.src = dc.video;
+        // play only while on screen (saves battery and data)
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+              if (e.isIntersecting) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); }
+              else vid.pause();
+            });
+          }, { threshold: .25 }).observe(vid);
+        } else { vid.autoplay = true; }
+      }
     }
   })();
+
 
   // ---------- hero photo (falls back to the drawn scene if missing) ----------
   (function () {

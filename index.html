@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=47" />
+  <link rel="stylesheet" href="css/style.css?v=50" />
 </head>
 <body class="is-locked">
 
@@ -134,19 +134,31 @@
 
     <!-- ============ DRESS CODE ============ -->
     <section class="dress" id="dress-code">
+      <div class="dress__pillar dress__pillar--left" aria-hidden="true"></div>
+      <div class="dress__pillar dress__pillar--right" aria-hidden="true"></div>
+      <div class="dress__mandala" aria-hidden="true"></div>
       <div class="dress__inner">
-        <p class="eyebrow reveal" data-bind="dressCode.eyebrow"></p>
-        <h2 class="section-title section-title--xl reveal" data-bind="dressCode.title"></h2>
-        <span class="flourish-img reveal" aria-hidden="true"></span>
-        <p class="dress__intro reveal" data-bind="dressCode.intro"></p>
+        <h2 class="attire-title reveal">
+          <span class="attire-title__caps" data-bind="dressCode.title"></span>
+          <span class="attire-title__script" data-bind="dressCode.script"></span>
+        </h2>
+
+        <figure class="dress__video reveal">
+          <video id="dressVideo" muted loop playsinline preload="metadata" aria-label="The four outfits hanging in the palette colours"></video>
+        </figure>
+
+        <img class="dress__couples reveal" data-src-bind="dressCode.couples" alt="Two couples dressed in dark green, sage, cream and soft yellow traditional wear" loading="lazy">
 
         <div class="palette reveal" id="dressPalette"></div>
+        <p class="dress__message reveal" data-bind="dressCode.message"></p>
 
-        <div class="outfits" id="dressOutfits"></div>
-
-        <p class="dress__note reveal" data-bind="dressCode.note"></p>
+        <div class="gentle reveal">
+          <span class="gentle__rule" aria-hidden="true"><i></i><b></b><i></i></span>
+          <h3 class="gentle__title" data-bind="dressCode.noteTitle"></h3>
+          <p class="gentle__text" data-bind="dressCode.note"></p>
+          <span class="gentle__rule" aria-hidden="true"><i></i><b></b><i></i></span>
+        </div>
       </div>
-      <div class="dress__waves" aria-hidden="true"></div>
     </section>
 
     <!-- ============ THE RECEPTION ============ -->
@@ -273,7 +285,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=47"></script>
-  <script src="js/app.js?v=47"></script>
+  <script src="js/config.js?v=50"></script>
+  <script src="js/app.js?v=50"></script>
 </body>
 </html>

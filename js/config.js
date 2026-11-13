@@ -54,25 +54,17 @@ window.WEDDING = {
     waze: "https://waze.com/ul?q=Gemersik%20Bayu%20Villa&navigate=yes"
   },
 
-  // --- Dress Code (page 4) ---  [TBC] colours & outfits waiting for the client
+  // --- Dress Code (page 4) ---
   dressCode: {
-    eyebrow: "Dress Code",
-    title: "Beach Traditional",
-    intro: "We'd love to see you in traditional wear, in soft colours inspired by the sea and the sunset.",
-    // swatches shown as circles; hex = colour, name = label underneath
-    palette: [
-      { name: "Ivory", hex: "#f6efe2" },
-      { name: "Champagne", hex: "#e6cfa0" },
-      { name: "Sea Blue", hex: "#8fb9b4" },
-      { name: "Blush", hex: "#e8b8a8" },
-      { name: "Maroon", hex: "#6e1520" }
-    ],
-    // image: optional photo path (e.g. "assets/dress/her.webp"); empty shows the line-art figure
-    outfits: [
-      { label: "For Her", title: "Saree or Lehenga", text: "Silk or chiffon sarees, lehengas or half-sarees in the palette colours.", image: "", art: "assets/art/dress-her.svg" },
-      { label: "For Him", title: "Veshti or Kurta", text: "Veshti with shirt, kurta or a light batik shirt in matching tones.", image: "", art: "assets/art/dress-him.svg" }
-    ],
-    note: "Light, breathable fabrics recommended. It's a beach celebration!"
+    title: "Wedding",
+    script: "attire",
+    video: "assets/dress/outfits.mp4",
+    poster: "assets/dress/outfits-poster.jpg",
+    couples: "assets/dress/couples.webp",
+    palette: ["#3d4c35", "#9fae8b", "#ffeebf", "#f4cd6f"],
+    message: "We'd love our guests to wear colours inspired by our palette",
+    noteTitle: "A Gentle Note",
+    note: "To complement our wedding palette, we kindly request our guests to refrain from wearing red or any shades of red"
   },
 
   // --- The Wedding ---
