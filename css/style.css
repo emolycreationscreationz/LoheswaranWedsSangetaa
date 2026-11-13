@@ -1007,10 +1007,11 @@ a { color: inherit; }
 .closing__photo-wrap { position: absolute; inset: 0; margin: 0; overflow: hidden; }
 .closing__photo {
   width: 100%; height: 100%; object-fit: cover; object-position: 40% 20%; display: block;
-  transform: scale(1.12); filter: brightness(1.1) saturate(.85); opacity: .001;
+  transform: scale(1.12); filter: blur(12px) brightness(1.1) saturate(.85); opacity: .001;
   transition: transform 3s cubic-bezier(.2, .7, .2, 1), filter 2.4s ease, opacity 1.8s ease;
 }
-.reveal-photo.is-in .closing__photo { transform: scale(1); filter: none; opacity: 1; animation: kenburns 26s ease-in-out 3s infinite alternate; }
+.reveal-photo.is-in .closing__photo { transform: scale(1); filter: blur(var(--photo-blur)); opacity: 1; animation: kenburns 26s ease-in-out 3s infinite alternate; }
+.closing { --photo-blur: 3.5px; }   /* softness of the couple photo; 0px = sharp */
 @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07) translate(1%, -1%); } }
 .closing__sun {   /* glowing, breathing sun */
   position: absolute; left: 26%; top: 9%; width: 70vmin; aspect-ratio: 1; transform: translate(-50%, -50%);
@@ -1084,6 +1085,7 @@ a { color: inherit; }
   .closing__names { font-size: clamp(1.9rem, 8.4vw, 2.6rem); }
 }
 @media (min-width: 900px) {
+  .closing { --photo-blur: 4px; }
   .closing { flex-direction: row; align-items: center; justify-content: flex-start; }
   .closing__backdrop {   /* soft, warm, blurred copy of the photo */
     display: block; position: absolute; inset: -40px;
@@ -1132,6 +1134,6 @@ a { color: inherit; }
   .dress__strand { animation: none; }
   .is-entering .hero, .is-entering .hero__photo, .is-entering .hero__scene { animation: none; }
   .gate.is-open .gate__stage, .gate__seam, .gate__light { animation: none !important; }
-  .closing__photo { opacity: 1; filter: none; transform: none; }
+  .closing__photo { opacity: 1; filter: blur(var(--photo-blur)); transform: none; }
   .closing__glints, .closing__sun { display: none; }
 }
