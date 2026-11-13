@@ -188,22 +188,23 @@
   }
   openBtn.addEventListener("click", function () {
     if (gate.classList.contains("is-open")) return;
-    gate.classList.add("is-open");
     window.scrollTo(0, 0);
+    // page 1 is already waiting behind the doors
+    document.body.classList.add("is-entering");
+    gate.classList.add("is-open");
     playMusic();
     if (!reduceMotion) setTimeout(burst, 850);
-    // page 1 comes into focus behind the golden glow, its words rising in
+    // names and countdown rise in as the doors part
+    setTimeout(function () { if (window.__startReveal) window.__startReveal(); }, reduceMotion ? 0 : 1300);
     setTimeout(function () {
       document.body.classList.remove("is-locked");
-      document.body.classList.add("is-entering");
       gate.classList.add("is-gone");
-      window.scrollTo(0, 0);
       if (!reduceMotion) shower();
-      if (window.__startReveal) window.__startReveal();
-    }, reduceMotion ? 300 : 3000);
-    setTimeout(function () { gate.remove(); }, reduceMotion ? 1600 : 4600);
-    setTimeout(function () { document.body.classList.remove("is-entering"); }, reduceMotion ? 1600 : 6000);
+    }, reduceMotion ? 300 : 2900);
+    setTimeout(function () { gate.remove(); }, reduceMotion ? 1500 : 4100);
+    setTimeout(function () { document.body.classList.remove("is-entering"); }, reduceMotion ? 1500 : 4400);
   });
+
 
 
   // ---------- music ----------
