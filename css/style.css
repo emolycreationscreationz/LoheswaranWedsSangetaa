@@ -398,7 +398,7 @@ a { color: inherit; }
 .hero__weds {
   display: flex; align-items: center; justify-content: center; gap: .7rem;
   font-family: var(--f-script); color: var(--gold); font-size: 2.3rem; line-height: 1;
-  margin: calc(.55rem + .14em) 0 calc(.7rem - .14em); padding: .1em 0 .15em;
+  margin: calc(.55rem + .28em) 0 calc(.7rem - .28em); padding: .1em 0 .15em;
 }
 .hero__weds::before, .hero__weds::after { content: ""; width: 46px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
 .hero__weds::after { background: linear-gradient(90deg, var(--gold), transparent); }
@@ -432,7 +432,7 @@ a { color: inherit; }
   }
   .hero__quote { font-size: 1.3rem; max-width: 22rem; margin-bottom: 2.2rem; }
   .hero__name { font-size: clamp(4rem, 5.6vw, 6rem); }
-  .hero__weds { font-size: clamp(2.6rem, 3vw, 3.4rem); margin: calc(.7rem + .16em) 0 calc(.9rem - .16em); }
+  .hero__weds { font-size: clamp(2.6rem, 3vw, 3.4rem); margin: calc(.7rem + .3em) 0 calc(.9rem - .3em); }
   .hero__weds::before, .hero__weds::after { width: 70px; }
   .countdown { gap: .7rem; margin-top: 2.6rem; }
   .countdown div { width: 74px; padding: .75rem 0 .55rem; border-radius: 12px; }
