@@ -38,7 +38,7 @@
   });
   document.querySelectorAll("[data-src-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-src-bind"));
-    if (v) el.src = v; else (el.closest(".closing__frame") || el).remove();
+    if (v) el.src = v; else (el.closest(".closing__photo-wrap") || el).remove();
   });
   document.querySelectorAll("[data-href]").forEach(function (el) {
     var v = get(el.getAttribute("data-href"));
@@ -292,6 +292,23 @@
           btn.disabled = false; btn.textContent = "Send RSVP";
         });
     });
+  })();
+
+  // ---------- closing: backdrop + glints on the water ----------
+  (function () {
+    var bd = document.querySelector(".closing__backdrop");
+    if (bd && W.closing && W.closing.photo) bd.style.backgroundImage = 'url("' + W.closing.photo + '")';
+    var g = document.querySelector(".closing__glints");
+    if (!g || reduceMotion) return;
+    for (var i = 0; i < 22; i++) {
+      var d = document.createElement("span");
+      d.style.left = (4 + Math.random() * 60) + "%";
+      d.style.top = (24 + Math.random() * 62) + "%";
+      d.style.setProperty("--s", (4 + Math.random() * 8) + "px");
+      d.style.animationDelay = (-Math.random() * 3) + "s";
+      d.style.animationDuration = (1.6 + Math.random() * 2) + "s";
+      g.appendChild(d);
+    }
   })();
 
   // ---------- closing petals ----------

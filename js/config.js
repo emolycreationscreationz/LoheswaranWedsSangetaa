@@ -123,7 +123,7 @@ window.WEDDING = {
 
   // --- Closing (last page) ---
   closing: {
-    photo: "assets/photos/couple.webp",
+    photo: "assets/photos/couple-beach.webp",
     message: ["We can't wait to celebrate", "our big day with you."],
     signoff: "With love,",
     names: "Loheswaran & Sangetaa"
