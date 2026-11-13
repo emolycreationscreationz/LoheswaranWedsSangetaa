@@ -647,11 +647,43 @@ a { color: inherit; }
    ============================================================ */
 .dress {
   position: relative; overflow: hidden; text-align: center;
-  padding: 4.8rem 3.4rem 4.6rem;
+  padding: 6.4rem 3.4rem 4.6rem;
   background:
-    radial-gradient(ellipse 70% 40% at 50% 30%, #fffdf7, transparent 75%),
-    linear-gradient(180deg, #fdf9ef 0%, #fbf4e4 100%);
+    radial-gradient(ellipse 55% 30% at 50% 26%, rgba(255, 253, 245, .95), rgba(255, 253, 245, 0) 75%),
+    radial-gradient(ellipse 60% 26% at 50% 62%, rgba(255, 252, 240, .8), rgba(255, 252, 240, 0) 75%),
+    radial-gradient(ellipse 120% 60% at 50% 0%, rgba(243, 214, 138, .28), transparent 70%),
+    radial-gradient(ellipse 120% 50% at 50% 100%, rgba(232, 196, 120, .3), transparent 70%),
+    url("../assets/art/damask.svg") center top / 92px 108px repeat,
+    linear-gradient(180deg, #fbf1dc 0%, #f8ead0 50%, #f4e0bd 100%);
 }
+.dress::before {   /* soften the damask so it stays a whisper */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(251, 243, 226, .55), rgba(251, 243, 226, .35) 50%, rgba(248, 234, 208, .5));
+}
+.dress__garland {
+  position: absolute; z-index: 3; top: 0; left: 0; right: 0; height: 64px; pointer-events: none;
+  background: url("../assets/art/thoranam.svg") center top / 80px 64px repeat-x;
+  filter: drop-shadow(0 4px 4px rgba(80, 40, 10, .25));
+}
+.dress__strand {
+  position: absolute; z-index: 2; top: 8px; width: 14px; aspect-ratio: 20 / 300; pointer-events: none;
+  background: url("../assets/art/strand.svg") center top / contain no-repeat;
+  filter: drop-shadow(0 2px 2px rgba(80, 40, 10, .25));
+  transform-origin: top center; animation: sway 5s ease-in-out infinite;
+}
+.dress__strand--l1 { left: 40px; height: 230px; }
+.dress__strand--l2 { left: 58px; height: 160px; animation-delay: -1.6s; }
+.dress__strand--r1 { right: 40px; height: 230px; animation-delay: -.8s; }
+.dress__strand--r2 { right: 58px; height: 160px; animation-delay: -2.4s; }
+@keyframes sway { 0%, 100% { transform: rotate(-1.6deg); } 50% { transform: rotate(1.6deg); } }
+.dress__leaves {
+  position: absolute; z-index: 1; pointer-events: none; opacity: .55;
+  background: url("../assets/art/gold-leaves.svg") left top / contain no-repeat;
+  width: clamp(140px, 36vw, 320px); aspect-ratio: 5 / 6;
+}
+.dress__leaves--tl { top: 40px; left: 18px; }
+.dress__leaves--br { bottom: 10px; right: 18px; transform: rotate(180deg); }
+.dress__sparkles { z-index: 1; }
 .dress__pillar {
   position: absolute; top: 0; bottom: 0; width: 30px; z-index: 1; pointer-events: none;
   background: url("../assets/art/pillar.svg") center top / 30px 46px repeat-y;
@@ -695,11 +727,7 @@ a { color: inherit; }
 }
 .dress__couples {
   display: block; width: min(100%, 340px); margin: 0 auto 1.4rem; aspect-ratio: 708 / 712;
-  mix-blend-mode: multiply;
-  -webkit-mask: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent), linear-gradient(transparent, #000 3%, #000 97%, transparent);
-  -webkit-mask-composite: source-in;
-  mask: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent), linear-gradient(transparent, #000 3%, #000 97%, transparent);
-  mask-composite: intersect;
+  filter: drop-shadow(0 8px 14px rgba(110, 70, 30, .16));
 }
 .palette { display: flex; justify-content: center; gap: clamp(.6rem, 3vw, 1rem); margin-bottom: 1.5rem; }
 .swatch__dot {
@@ -729,13 +757,19 @@ a { color: inherit; }
   font-size: clamp(1.02rem, 4.4vw, 1.2rem); line-height: 1.35; color: #4a3220; margin-bottom: .7rem;
 }
 @media (max-width: 480px) {
-  .dress { padding: 4.4rem 2.6rem 4.2rem; }
+  .dress { padding: 6rem 2.6rem 4.2rem; }
+  .dress__strand--l1 { left: 30px; height: 180px; } .dress__strand--l2 { left: 44px; height: 120px; width: 11px; }
+  .dress__strand--r1 { right: 30px; height: 180px; } .dress__strand--r2 { right: 44px; height: 120px; width: 11px; }
   .dress__pillar { width: 24px; background-size: 24px 38px; }
 }
 @media (min-width: 900px) {
   .dress { padding: 6rem 4rem 5rem; }
   .dress__inner { max-width: 44rem; }
   .dress__pillar { width: 64px; background-size: 64px 96px; }
+  .dress__strand { width: 20px; }
+  .dress__strand--l1 { left: 96px; height: 340px; } .dress__strand--l2 { left: 124px; height: 240px; }
+  .dress__strand--r1 { right: 96px; height: 340px; } .dress__strand--r2 { right: 124px; height: 240px; }
+  .dress__leaves--tl { left: 80px; } .dress__leaves--br { right: 80px; }
   .dress__video { max-width: 40rem; }
   .dress__couples { width: 380px; }
   .gentle__text { font-size: 1.3rem; }
@@ -1086,6 +1120,7 @@ a { color: inherit; }
   .closing__names span { clip-path: none; }
   .closing__sparkles { display: none; }
   .swatch__dot { transform: none; opacity: 1; }
+  .dress__strand { animation: none; }
   .is-entering .hero, .is-entering .hero__photo, .is-entering .hero__scene { animation: none; }
   .gate.is-open .gate__stage, .gate__seam, .gate__light { animation: none !important; }
   .closing__photo { opacity: 1; filter: none; transform: none; }

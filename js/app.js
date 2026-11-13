@@ -312,8 +312,7 @@
 
   // ---------- closing sparkles ----------
   (function () {
-    var host = document.querySelector(".closing__sparkles");
-    if (!host) return;
+    document.querySelectorAll(".closing__sparkles").forEach(function (host) {
     for (var i = 0; i < 18; i++) {
       var sp = document.createElement("span");
       sp.style.left = (4 + Math.random() * 92) + "%";
@@ -323,6 +322,7 @@
       sp.style.setProperty("--s", (6 + Math.random() * 10) + "px");
       host.appendChild(sp);
     }
+    });
   })();
 
   // ---------- page frames ----------
