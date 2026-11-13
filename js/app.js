@@ -142,21 +142,64 @@
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
   requestAnimationFrame(function () { gate.classList.add("is-ready"); });
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var PETALS = ["#f39a1e", "#f6b52e", "#ffd25e", "#c9302c", "#fffaf0", "#f3c6b8"];
+  function petal(host, cls) {
+    var p = document.createElement("span");
+    p.className = cls;
+    p.style.background = PETALS[Math.floor(Math.random() * PETALS.length)];
+    p.style.setProperty("--s", (7 + Math.random() * 9) + "px");
+    host.appendChild(p);
+    return p;
+  }
+  // petals bursting out through the opening doors
+  function burst() {
+    var host = gate.querySelector(".gate__burst");
+    if (!host) return;
+    for (var i = 0; i < 46; i++) {
+      var p = petal(host, "burst-petal");
+      var ang = Math.random() * Math.PI * 2, dist = 30 + Math.random() * 45;
+      p.style.setProperty("--dx", (Math.cos(ang) * dist) + "vw");
+      p.style.setProperty("--dy", (Math.sin(ang) * dist * .8 - 8) + "vh");
+      p.style.setProperty("--r", (Math.random() * 720 - 360) + "deg");
+      p.style.animationDuration = (1.6 + Math.random() * 1.2) + "s";
+      p.style.animationDelay = (Math.random() * .5) + "s";
+    }
+  }
+  // a gentle shower that keeps falling over page 1, then clears
+  function shower() {
+    var host = document.createElement("div");
+    host.className = "petal-shower"; host.setAttribute("aria-hidden", "true");
+    document.body.appendChild(host);
+    for (var i = 0; i < 34; i++) {
+      var p = petal(host, "shower-petal");
+      p.style.left = (Math.random() * 100) + "%";
+      p.style.setProperty("--sway", (Math.random() * 60 - 30) + "px");
+      p.style.setProperty("--r", (Math.random() * 540 + 180) + "deg");
+      p.style.animationDuration = (3.6 + Math.random() * 3) + "s";
+      p.style.animationDelay = (Math.random() * 1.8) + "s";
+    }
+    setTimeout(function () { host.remove(); }, 9000);
+  }
   openBtn.addEventListener("click", function () {
     if (gate.classList.contains("is-open")) return;
     gate.classList.add("is-open");
     window.scrollTo(0, 0);
     playMusic();
-    // land directly on page 1: it fades in through the doorway and its words rise in
+    if (!reduceMotion) setTimeout(burst, 850);
+    // page 1 comes into focus behind the golden glow, its words rising in
     setTimeout(function () {
       document.body.classList.remove("is-locked");
       document.body.classList.add("is-entering");
       gate.classList.add("is-gone");
       window.scrollTo(0, 0);
+      if (!reduceMotion) shower();
       if (window.__startReveal) window.__startReveal();
-    }, 2300);
-    setTimeout(function () { gate.remove(); document.body.classList.remove("is-entering"); }, 4200);
+    }, reduceMotion ? 300 : 3000);
+    setTimeout(function () { gate.remove(); }, reduceMotion ? 1600 : 4600);
+    setTimeout(function () { document.body.classList.remove("is-entering"); }, reduceMotion ? 1600 : 6000);
   });
+
 
   // ---------- music ----------
   var audio = document.getElementById("bgm");
