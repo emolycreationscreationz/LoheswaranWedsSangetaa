@@ -311,6 +311,28 @@
     });
   })();
 
+  // ---------- contacts ----------
+  (function () {
+    var host = document.getElementById("contactList");
+    if (!host) return;
+    var list = W.contacts || [];
+    if (!list.length) { document.getElementById("contacts").remove(); return; }
+    var PHONE = '<svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>';
+    var WA = '<svg viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7z"/><path d="M9 8.6c.2-.4.5-.4.8-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5a6 6 0 0 0 2.9 2.6c.2.1.4 0 .5-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.7c.3.1.3.3.3.5 0 .6-.3 1.4-1 1.7-.6.3-1.6.4-3.4-.4a9 9 0 0 1-3.8-3.6c-.6-1-.9-2-.2-3.3z"/></svg>';
+    host.innerHTML = list.map(function (c) {
+      var digits = String(c.phone).replace(/\D/g, "");
+      var intl = digits.charAt(0) === "0" ? "6" + digits : digits;   // Malaysia: 01x -> 601x
+      return '<div class="contact">' +
+        '<p class="contact__side">' + esc(c.side) + '</p>' +
+        '<p class="contact__name">' + esc(c.name) + '</p>' +
+        '<p class="contact__phone">' + esc(c.phone) + '</p>' +
+        '<div class="contact__btns">' +
+          '<a class="contact__btn" href="tel:+' + intl + '" aria-label="Call ' + esc(c.name) + '">' + PHONE + 'Call</a>' +
+          '<a class="contact__btn contact__btn--wa" href="https://wa.me/' + intl + '" target="_blank" rel="noopener" aria-label="WhatsApp ' + esc(c.name) + '">' + WA + 'WhatsApp</a>' +
+        '</div></div>';
+    }).join("");
+  })();
+
   // ---------- closing: backdrop + glints on the water ----------
   (function () {
     var bd = document.querySelector(".closing__backdrop");

@@ -128,6 +128,12 @@ window.WEDDING = {
     thanks: "Your RSVP has been received. We can't wait to celebrate with you!"
   },
 
+  // --- Contacts (shown on the RSVP page). phone in local format; tap to call or WhatsApp ---
+  contacts: [
+    { side: "Groom", name: "Mr Barathan", phone: "018-874 2833" },
+    { side: "Bride", name: "Mr Linngesh", phone: "011-3355 2742" }
+  ],
+
   // --- Closing (last page) ---
   closing: {
     photo: "assets/photos/couple-beach.webp",

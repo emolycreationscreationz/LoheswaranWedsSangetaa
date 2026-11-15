@@ -1022,6 +1022,27 @@ a { color: inherit; }
 .rsvp__thanks h3 { font-family: var(--f-display); font-weight: 600; font-size: 2rem; color: var(--brown); }
 .rsvp__thanks p { font-size: 1.08rem; color: var(--brown-soft); margin-top: .3rem; }
 [hidden] { display: none !important; }
+/* contacts (inside the RSVP card) */
+.contacts { margin-top: 1.6rem; text-align: center; }
+.contacts__rule i { width: 60px; }
+.contacts__title { font-family: "Cinzel", serif; font-weight: 700; font-size: .95rem; letter-spacing: .26em; padding-left: .26em; text-transform: uppercase; color: #4b1a12; margin-top: .6rem; }
+.contacts__sub { font-style: italic; font-size: 1rem; color: var(--brown-soft); margin: .2rem 0 1rem; }
+.contacts__list { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+.contact {
+  padding: .9rem .5rem .8rem; border-radius: 14px; background: #fffdf8;
+  box-shadow: inset 0 0 0 1px rgba(160, 116, 46, .35), 0 4px 12px rgba(110, 70, 30, .08);
+}
+.contact__side { font-family: "Cinzel", serif; font-size: .58rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-deep); }
+.contact__name { font-family: var(--f-display); font-weight: 700; font-size: 1.12rem; color: var(--brown); margin-top: .15rem; }
+.contact__phone { font-family: var(--f-display); font-weight: 600; font-size: 1.02rem; letter-spacing: .04em; color: var(--brown-soft); font-variant-numeric: lining-nums; }
+.contact__btns { display: flex; flex-direction: column; gap: .4rem; margin-top: .6rem; }
+.contact__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .35rem; min-height: 38px; border-radius: 999px;
+  font-family: "Cinzel", serif; font-weight: 700; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none;
+  color: #fdf3df; background: linear-gradient(135deg, #7a2a1f, #4b1a12);
+}
+.contact__btn--wa { background: linear-gradient(135deg, #2f7d4f, #1d5a37); }
+.contact__btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 @media (max-width: 899px) {
   .rsvp {
