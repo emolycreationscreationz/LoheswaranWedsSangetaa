@@ -105,7 +105,7 @@ window.WEDDING = {
 
   // --- The Reception (page 5). Set reception: null to hide this page. ---
   reception: {
-    intro: ["With Full Hearts,", "We Invite You To Their Wedding Reception"],
+    intro: ["With Full Hearts,", "We Invite You To Our Wedding Reception"],
     month: "December",
     weekday: "Sunday",
     day: "13",
