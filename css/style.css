@@ -602,6 +602,16 @@ a { color: inherit; }
   margin: 1.1rem 0 .6rem; text-shadow: 0 2px 18px rgba(0, 0, 0, .35);
 }
 .venue-page__area { font-family: var(--f-display); font-size: clamp(1.3rem, 5vw, 1.8rem); color: #e3bd78; }
+.venue-page .reception__intro { margin-bottom: 1.4rem; }
+.venue-page .datebar { margin-bottom: 1.4rem; }
+.venue-page__onwards { font-family: "Cinzel", serif; font-size: .78rem; letter-spacing: .3em; text-transform: uppercase; color: #f3d68a; margin: -.6rem 0 1.2rem; }
+.venue-page .reception__venue { margin-bottom: .5rem; }
+.venue-page__address { font-family: var(--f-display); font-size: clamp(1rem, 4.2vw, 1.2rem); line-height: 1.45; letter-spacing: .04em; color: #f1dcb4; text-shadow: 0 1px 8px rgba(0, 0, 0, .6); }
+.venue-page__inner::before {   /* soft shade so the details read over the sunset */
+  content: ""; position: absolute; z-index: -1; left: 50%; top: 45%; width: 150%; height: 130%; transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center, rgba(40, 6, 10, .55), rgba(40, 6, 10, .28) 55%, transparent 75%);
+  pointer-events: none;
+}
 .venue-page__btns { display: flex; justify-content: center; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
 .btn-line {
   display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
@@ -617,20 +627,28 @@ a { color: inherit; }
 
 @media (max-width: 899px) {
   .venue-page {
-    min-height: max(100svh, 179vw);
-    padding-top: calc(31vw + .5rem);
+    /* details sit in the maroon sky; the beach & mandap show in full below */
+    padding-top: calc(26vw + .5rem); padding-bottom: 108vw;
     background:
-      linear-gradient(180deg, rgba(58, 7, 13, .25) 0%, rgba(58, 7, 13, 0) 40%),
-      url("../assets/backgrounds/venue-mobile.webp") center bottom / cover no-repeat,
+      linear-gradient(180deg, #4a0c14 0, #4a0c14 calc(100% - 179vw), rgba(74, 12, 20, .55) calc(100% - 179vw + 30vw), rgba(74, 12, 20, 0) calc(100% - 179vw + 62vw)),
+      url("../assets/backgrounds/venue-mobile.webp") center bottom / 100% auto no-repeat,
       #4a0c14;
   }
+  .venue-page::before {   /* the marigold garlands across the top of the page */
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 30vw; pointer-events: none;
+    background: url("../assets/backgrounds/venue-mobile.webp") center top / 100% auto no-repeat;
+    -webkit-mask: linear-gradient(#000 60%, transparent); mask: linear-gradient(#000 60%, transparent);
+  }
+  .venue-page__inner::before { top: 50%; height: 115%; }
+  .venue-page .reception__venue { letter-spacing: .18em; font-size: clamp(.95rem, 4.3vw, 1.2rem); }
+  .venue-page__address { font-size: clamp(.92rem, 3.9vw, 1.05rem); }
 }
 @media (max-width: 480px) {
   .venue-page__label { font-size: .66rem; letter-spacing: .24em; }
   .venue-page__name { font-size: clamp(2rem, 9vw, 2.6rem); margin: .7rem 0 .4rem; }
   .venue-page__btns { margin-top: 1.2rem; }
   .venue-page__btns { gap: .6rem; flex-wrap: nowrap; }
-  .btn-line { min-width: 0; flex: 1 1 0; max-width: 170px; padding: .8rem .6rem; font-size: .66rem; letter-spacing: .14em; gap: .45rem; }
+  .btn-line { min-width: 0; flex: 1 1 0; max-width: 170px; padding: .8rem .5rem; font-size: .62rem; letter-spacing: .1em; gap: .4rem; white-space: nowrap; }
 }
 @media (min-width: 900px) {
   .venue-page { padding-top: 7rem; }

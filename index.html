@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Allura&family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=59" />
+  <link rel="stylesheet" href="css/style.css?v=61" />
 </head>
 <body class="is-locked">
 
@@ -109,13 +109,24 @@
       </div>
     </section>
 
-    <!-- ============ THE VENUE ============ -->
+    <!-- ============ THE WEDDING (venue) ============ -->
     <section class="venue-page" id="venue">
-
       <div class="venue-page__inner">
-        <p class="venue-page__label reveal" data-bind="venue.label"></p>
-        <h2 class="venue-page__name reveal" data-bind="venue.name"></h2>
-        <p class="venue-page__area reveal" data-bind="venue.area"></p>
+        <h2 class="reception__heading reveal"><span class="reception__the">The</span> <span class="reception__word">Wedding</span></h2>
+        <span class="flourish-img reception__flourish reveal" aria-hidden="true"></span>
+        <p class="reception__intro reveal" data-bind-html="venue.introHtml"></p>
+        <div class="datebar reveal" aria-label="Wedding date and time">
+          <p class="datebar__month" data-bind="venue.month"></p>
+          <div class="datebar__row">
+            <span class="datebar__side" data-bind="venue.weekday"></span>
+            <span class="datebar__day" data-bind="venue.day"></span>
+            <span class="datebar__side" data-bind="venue.time"></span>
+          </div>
+          <p class="datebar__year" data-bind="venue.year"></p>
+        </div>
+        <p class="venue-page__onwards reveal" data-bind="venue.onwards"></p>
+        <h3 class="reception__venue reveal" data-bind-html="venue.nameHtml"></h3>
+        <p class="venue-page__address reveal" data-bind-html="venue.addressHtml"></p>
         <div class="venue-page__btns reveal">
           <a class="btn-line" data-href="venue.googleMaps" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
@@ -281,7 +292,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=59"></script>
-  <script src="js/app.js?v=59"></script>
+  <script src="js/config.js?v=61"></script>
+  <script src="js/app.js?v=61"></script>
 </body>
 </html>
