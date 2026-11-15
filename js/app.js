@@ -19,6 +19,7 @@
   });
 
   var lines = function (arr) { return (arr || []).map(esc).join("<br>"); };
+  W.familiesIntroHtml = lines([].concat(W.familiesIntro || []));
   if (W.venue) {
     W.venue.introHtml = lines(W.venue.intro);
     W.venue.addressHtml = lines(W.venue.address);

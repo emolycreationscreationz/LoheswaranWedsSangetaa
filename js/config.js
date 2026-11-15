@@ -43,11 +43,11 @@ window.WEDDING = {
 
   // --- Our Families ---
   familiesEyebrow: "Together with our families,",
-  familiesIntro: "We invite you to witness the beginning of our forever",
+  familiesIntro: ["We invite you to witness", "the beginning of our forever"],
 
   // --- The Venue (page 3) ---
   venue: {   // "The Wedding" page
-    intro: ["With Full Hearts,", "We Invite You To Their Wedding"],
+    intro: ["With Full Hearts,", "We Invite You To Our Wedding"],
     month: "December",
     weekday: "Friday",
     day: "11",
