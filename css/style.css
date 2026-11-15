@@ -1014,6 +1014,9 @@ section.families .families__heading { font-size: clamp(2.1rem, 4vw, 3rem); line-
   font-family: var(--f-display); font-weight: 600; font-size: 1.02rem; color: var(--brown-soft);
   transition: all .2s ease;
 }
+.choices--3 { grid-template-columns: repeat(3, 1fr); gap: .45rem; }
+.choices--3 .choice span { flex-direction: column; min-height: 54px; font-size: .98rem; line-height: 1.1; padding: .45rem .2rem; }
+.choice span small { display: block; margin-top: .2rem; font-family: "Cinzel", serif; font-weight: 600; font-size: .52rem; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
 .choice input:checked + span { background: linear-gradient(135deg, #7a2a1f, #4b1a12); border-color: #4b1a12; color: #fdf3df; }
 .choice input:focus-visible + span { box-shadow: 0 0 0 3px rgba(200, 155, 69, .35); }
 .rsvp__error { margin: -.2rem 0 .8rem; font-size: .95rem; color: #9b2c22; font-weight: 600; }

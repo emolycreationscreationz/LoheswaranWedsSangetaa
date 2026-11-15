@@ -14,8 +14,9 @@
  */
 
 var TAB = 'RSVP';
-var HEADERS = ['Timestamp', 'Name', 'Phone', 'Pax', 'Meal', 'Wishes'];
+var HEADERS = ['Timestamp', 'Name', 'Phone', 'Pax', 'Meal', 'Wishes', 'Attending'];
 var MEALS = ['Vegetarian', 'Non-Vegetarian'];
+var EVENTS = ['Wedding', 'Reception', 'Both'];
 
 function sheet_() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -26,6 +27,8 @@ function sheet_() {
     sh.setFrozenRows(1);
     sh.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
   }
+  // sheets created before the Attending column existed: add its header in G1
+  if (!sh.getRange(1, 7).getValue()) sh.getRange(1, 7).setValue('Attending').setFontWeight('bold');
   return sh;
 }
 
@@ -54,13 +57,14 @@ function doPost(e) {
     var pax = Math.min(Math.max(parseInt(d.pax, 10) || 0, 1), 20);
     var meal = MEALS.indexOf(d.meal) >= 0 ? d.meal : '';
     var wishes = clean_(d.wishes, 500);
-    if (!name || !phone || !meal) return json_({ ok: false, error: 'Name, phone and meal are required' });
+    var attending = EVENTS.indexOf(d.attending) >= 0 ? d.attending : '';
+    if (!name || !phone || !meal || !attending) return json_({ ok: false, error: 'Name, phone, attending and meal are required' });
     // Write to the first empty row of column A, so a summary box beside the
     // table (e.g. in columns I-J) doesn't push replies further down.
     var sh = sheet_();
     var used = sh.getRange('A:A').getValues().filter(function (r) { return r[0] !== ''; }).length;
     sh.getRange(used + 1, 1, 1, HEADERS.length)
-      .setValues([[new Date(), name, "'" + phone, pax, meal, wishes]]);
+      .setValues([[new Date(), name, "'" + phone, pax, meal, wishes, attending]]);
     return json_({ ok: true });
   } catch (err) {
     return json_({ ok: false, error: String(err) });

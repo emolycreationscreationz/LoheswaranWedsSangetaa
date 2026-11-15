@@ -286,10 +286,12 @@
         phone: f.phone.value.trim(),
         pax: f.pax.value,
         meal: (form.querySelector('input[name="meal"]:checked') || {}).value || "",
+        attending: (form.querySelector('input[name="attending"]:checked') || {}).value || "",
         wishes: f.wishes.value.trim()
       };
       if (!data.name) return fail("Please enter your name."), f.name.focus();
       if (!/^[+\d][\d\s-]{6,}$/.test(data.phone)) return fail("Please enter a valid phone number."), f.phone.focus();
+      if (!data.attending) return fail("Please choose which event you are attending.");
       if (!data.pax) return fail("Please choose the number of pax."), f.pax.focus();
       if (!data.meal) return fail("Please choose a meal preference.");
 

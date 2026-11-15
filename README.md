@@ -35,7 +35,7 @@ Open `js/config.js`. Items marked `[TBC]` are placeholders.
 
 ## RSVP → Google Sheets
 
-The RSVP form saves each reply (Timestamp, Name, Phone, Pax, Meal, Wishes) as a row in a Google Sheet.
+The RSVP form saves each reply (Timestamp, Name, Phone, Pax, Meal, Wishes, Attending) as a row in a Google Sheet.
 
 1. Create a new Google Sheet (e.g. "Loheswaran & Sangetaa RSVP").
 2. **Extensions → Apps Script**. Delete the sample code, paste in `google-apps-script/Code.gs`, and click Save.

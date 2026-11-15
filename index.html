@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Allura&family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=66" />
+  <link rel="stylesheet" href="css/style.css?v=67" />
 </head>
 <body class="is-locked">
 
@@ -255,6 +255,14 @@
             <span>Phone Number</span>
             <input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="e.g. 012-345 6789">
           </label>
+          <fieldset class="field field--choice">
+            <legend>Attending</legend>
+            <div class="choices choices--3">
+              <label class="choice"><input type="radio" name="attending" value="Wedding" required><span>Wedding<small>Fri, 11 Dec</small></span></label>
+              <label class="choice"><input type="radio" name="attending" value="Reception"><span>Reception<small>Sun, 13 Dec</small></span></label>
+              <label class="choice"><input type="radio" name="attending" value="Both"><span>Both<small>11 &amp; 13 Dec</small></span></label>
+            </div>
+          </fieldset>
           <label class="field">
             <span>Number of Pax</span>
             <select name="pax" required id="rsvpPax"></select>
@@ -311,7 +319,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=66"></script>
-  <script src="js/app.js?v=66"></script>
+  <script src="js/config.js?v=67"></script>
+  <script src="js/app.js?v=67"></script>
 </body>
 </html>
