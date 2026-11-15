@@ -42,8 +42,8 @@ window.WEDDING = {
   },
 
   // --- Our Families ---
-  familiesEyebrow: "Together with their families",
-  familiesIntro: "With full hearts, we invite you to their wedding",
+  familiesEyebrow: "Together with our families,",
+  familiesIntro: "We invite you to witness the beginning of our forever",
 
   // --- The Venue (page 3) ---
   venue: {   // "The Wedding" page
