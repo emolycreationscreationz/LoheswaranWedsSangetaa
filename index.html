@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Allura&family=Pinyon+Script&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=61" />
+  <link rel="stylesheet" href="css/style.css?v=62" />
 </head>
 <body class="is-locked">
 
@@ -112,30 +112,43 @@
     <!-- ============ THE WEDDING (venue) ============ -->
     <section class="venue-page" id="venue">
       <div class="venue-page__inner">
-        <h2 class="reception__heading reveal"><span class="reception__the">The</span> <span class="reception__word">Wedding</span></h2>
-        <span class="flourish-img reception__flourish reveal" aria-hidden="true"></span>
-        <p class="reception__intro reveal" data-bind-html="venue.introHtml"></p>
-        <div class="datebar reveal" aria-label="Wedding date and time">
-          <p class="datebar__month" data-bind="venue.month"></p>
-          <div class="datebar__row">
-            <span class="datebar__side" data-bind="venue.weekday"></span>
-            <span class="datebar__day" data-bind="venue.day"></span>
-            <span class="datebar__side" data-bind="venue.time"></span>
+        <div class="wed-card reveal">
+          <span class="wed-card__crest" aria-hidden="true"></span>
+          <span class="closing__corner closing__corner--bl" aria-hidden="true"></span>
+          <span class="closing__corner closing__corner--br" aria-hidden="true"></span>
+
+          <h2 class="wed-title"><span class="wed-title__the">The</span><span class="wed-title__word">Wedding</span></h2>
+          <p class="wed-intro" data-bind-html="venue.introHtml"></p>
+
+          <div class="wed-date" aria-label="Friday 11 December 2026">
+            <p class="wed-date__weekday" data-bind="venue.weekday"></p>
+            <div class="wed-date__medal"><span data-bind="venue.day"></span></div>
+            <p class="wed-date__month"><span data-bind="venue.month"></span> <span data-bind="venue.year"></span></p>
           </div>
-          <p class="datebar__year" data-bind="venue.year"></p>
-        </div>
-        <p class="venue-page__onwards reveal" data-bind="venue.onwards"></p>
-        <h3 class="reception__venue reveal" data-bind-html="venue.nameHtml"></h3>
-        <p class="venue-page__address reveal" data-bind-html="venue.addressHtml"></p>
-        <div class="venue-page__btns reveal">
-          <a class="btn-line" data-href="venue.googleMaps" target="_blank" rel="noopener">
+          <p class="wed-time">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+            <span data-bind="venue.time"></span>&nbsp;<em data-bind="venue.onwards"></em>
+          </p>
+
+          <span class="gentle__rule wed-rule" aria-hidden="true"><i></i><b></b><i></i></span>
+
+          <h3 class="wed-venue">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-            Google Maps
-          </a>
-          <a class="btn-line" data-href="venue.waze" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>
-            Waze
-          </a>
+            <span data-bind="venue.venueName"></span>
+          </h3>
+          <p class="wed-place" data-bind="venue.place"></p>
+          <p class="wed-address" data-bind-html="venue.addressHtml"></p>
+
+          <div class="venue-page__btns">
+            <a class="btn-line" data-href="venue.googleMaps" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Google Maps
+            </a>
+            <a class="btn-line" data-href="venue.waze" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>
+              Waze
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -292,7 +305,7 @@
     </section>
   </main>
 
-  <script src="js/config.js?v=61"></script>
-  <script src="js/app.js?v=61"></script>
+  <script src="js/config.js?v=62"></script>
+  <script src="js/app.js?v=62"></script>
 </body>
 </html>

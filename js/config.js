@@ -53,8 +53,9 @@ window.WEDDING = {
     day: "11",
     time: "8:45 AM",
     year: "2026",
-    onwards: "",                                         // optional extra line, e.g. "Onwards"
-    name: ["Gemersik Bayu Villa,", "Port Dickson"],
+    onwards: "onwards",
+    venueName: "Gemersik Bayu Villa",
+    place: "Port Dickson",
     address: ["1275A, Jalan Pantai,", "71000 Port Dickson, Negeri Sembilan"],
     googleMaps: "https://share.google/rTHuXl7OQXmZ05BMh",
     waze: "https://waze.com/ul?q=Gemersik%20Bayu%20Villa%20Port%20Dickson&navigate=yes"

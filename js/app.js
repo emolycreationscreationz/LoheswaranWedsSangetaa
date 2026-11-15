@@ -21,7 +21,6 @@
   var lines = function (arr) { return (arr || []).map(esc).join("<br>"); };
   if (W.venue) {
     W.venue.introHtml = lines(W.venue.intro);
-    W.venue.nameHtml = lines(W.venue.name);
     W.venue.addressHtml = lines(W.venue.address);
   }
   if (W.reception) {
@@ -35,7 +34,7 @@
   document.querySelectorAll("[data-bind]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind"));
     if (v != null && v !== "") el.textContent = v;
-    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area, .venue-page__onwards, .rsvp__deadline")) el.remove();
+    else if (el.matches(".person__home, .person__title, .eyebrow, .venue-page__area, .venue-page__onwards, .wed-place, .rsvp__deadline")) el.remove();
   });
   document.querySelectorAll("[data-bind-html]").forEach(function (el) {
     var v = get(el.getAttribute("data-bind-html"));
