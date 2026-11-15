@@ -534,7 +534,9 @@ a { color: inherit; }
   section.families .eyebrow { font-size: .74rem; }
   section.families .section-title { font-size: clamp(2.5rem, 11vw, 2.9rem); }
   section.families .flourish-img { margin: .4rem auto .9rem; }
-  section.families .families__intro { font-size: clamp(1.15rem, 4.9vw, 1.3rem); max-width: 19rem; margin-bottom: 1.6rem; }
+  section.families .families .families__heading { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.15; max-width: 30rem; margin-left: auto; margin-right: auto; }
+@media (max-width: 899px) { section.families .families__heading { font-size: clamp(2rem, 9vw, 2.5rem); max-width: 18rem; } }
+.families__intro { font-size: clamp(1.15rem, 4.9vw, 1.3rem); max-width: 19rem; margin-bottom: 1.6rem; }
   section.families .person__name { font-size: clamp(2.9rem, 13vw, 3.5rem); margin-top: .3rem; }
   section.families .flourish-img--sm { margin: .4rem auto .5rem; }
   section.families .person__rel { font-size: clamp(1.1rem, 4.6vw, 1.22rem); }
