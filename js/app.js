@@ -314,6 +314,32 @@
     });
   })();
 
+  // ---------- save the date calendar ----------
+  (function () {
+    var cfg = W.saveTheDate, grid = document.getElementById("calGrid");
+    if (!grid) return;
+    if (!cfg) { document.getElementById("saveTheDate").remove(); return; }
+    var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    document.getElementById("calMonth").textContent = MONTHS[cfg.month - 1];
+    document.getElementById("calYear").textContent = cfg.year;
+    var first = new Date(cfg.year, cfg.month - 1, 1).getDay();
+    var days = new Date(cfg.year, cfg.month, 0).getDate();
+    var marks = {}; (cfg.marks || []).forEach(function (m, i) { marks[m.day] = { label: m.label, i: i }; });
+    var HEART = '<svg viewBox="0 0 32 29" class="cal__heart"><path d="M16 28.5 3.6 16.2A8.2 8.2 0 0 1 15.2 4.6L16 5.4l.8-.8a8.2 8.2 0 0 1 11.6 11.6z"/></svg>';
+    var html = ["S","M","T","W","T","F","S"].map(function (d, i) { return '<span class="cal__dow' + (i === 0 ? ' cal__dow--sun' : '') + '">' + d + '</span>'; }).join("");
+    for (var b = 0; b < first; b++) html += '<span class="cal__day cal__day--blank"></span>';
+    for (var d = 1; d <= days; d++) {
+      var m = marks[d], sun = (first + d - 1) % 7 === 0;
+      html += m
+        ? '<span class="cal__day cal__day--mark" style="--i:' + m.i + '">' + HEART + '<b>' + d + '</b><small>' + esc(m.label) + '</small></span>'
+        : '<span class="cal__day' + (sun ? ' cal__day--sun' : '') + '">' + d + '</span>';
+    }
+    grid.innerHTML = html;
+    document.getElementById("calLegend").innerHTML = (cfg.marks || []).map(function (m) {
+      return '<span><i>♥</i>' + m.day + ' · ' + esc(m.label) + '</span>';
+    }).join("");
+  })();
+
   // ---------- contacts ----------
   (function () {
     var host = document.getElementById("contactList");

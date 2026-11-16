@@ -1084,6 +1084,57 @@ section.families .families__heading { font-size: clamp(2.1rem, 4vw, 3rem); line-
   }
 }
 
+/* ---------- Save the Date calendar ---------- */
+.std { margin: 0 auto 1.6rem; width: min(78vw, 320px); }
+.std__title {
+  font-family: "Pinyon Script", var(--f-script); font-size: clamp(2.6rem, 11vw, 3.4rem); line-height: 1.1; padding: 0 .2em .05em;
+  background: linear-gradient(100deg, #e9b85a 0%, #fbe7a8 30%, #fffaf0 45%, #f6d58a 60%, #d9a447 100%) 0 0 / 220% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 1px rgba(60, 20, 0, .9)) drop-shadow(0 2px 10px rgba(0, 0, 0, .75)) drop-shadow(0 0 22px rgba(40, 14, 4, .6));
+  animation: foil 6s ease-in-out infinite; margin-bottom: .7rem;
+}
+.cal {
+  position: relative; padding: 0 0 .7rem; border-radius: 10px; text-align: center; color: #3a2418;
+  background: linear-gradient(180deg, #fffdf8, #f8f0e1);
+  box-shadow: 0 2px 0 #e8dcc6, 0 4px 0 #f4ead8, 0 6px 0 #e3d5bb, 0 22px 40px rgba(10, 4, 0, .5);   /* stacked pages */
+  transform: rotate(-2deg);
+}
+.cal__head {
+  display: flex; align-items: baseline; justify-content: center; gap: .55rem; padding: 1.15rem .8rem .7rem; border-radius: 10px 10px 0 0;
+  background: linear-gradient(180deg, #7a1f24, #5a0f17); color: #fff4dc;
+  box-shadow: inset 0 -2px 0 rgba(243, 214, 138, .7);
+}
+.cal__month { font-family: "Cinzel", serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .24em; text-transform: uppercase; }
+.cal__year { font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; color: #f3d68a; letter-spacing: .1em; }
+.cal__ring {   /* binder rings */
+  position: absolute; top: -12px; width: 12px; height: 26px; border-radius: 6px; z-index: 1;
+  background: linear-gradient(90deg, #8a5a14, #fbe7a8 45%, #c8963e 70%, #7a4a10);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .35);
+}
+.cal__ring::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: #3a0a0e; }
+.cal__ring--l { left: 22%; } .cal__ring--r { right: 22%; }
+.cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px .1rem; padding: .55rem .55rem .2rem; font-variant-numeric: lining-nums; }
+.cal__dow { font-family: "Cinzel", serif; font-weight: 700; font-size: .62rem; color: #8a5a14; padding: .15rem 0 .35rem; border-bottom: 1px solid rgba(138, 90, 20, .2); margin-bottom: .2rem; }
+.cal__dow--sun, .cal__day--sun { color: #a8343a; }
+.cal__day { position: relative; display: grid; place-items: center; height: 40px; font-family: var(--f-display); font-weight: 600; font-size: 1.02rem; }
+.cal__day--mark b { position: relative; z-index: 1; color: #fff; font-size: 1.05rem; font-weight: 700; margin-top: -9px; }
+.cal__day--mark small {
+  position: absolute; left: 50%; bottom: -6px; transform: translateX(-50%); white-space: nowrap; z-index: 1;
+  font-family: "Cinzel", serif; font-weight: 700; font-size: .44rem; letter-spacing: .06em; text-transform: uppercase; color: #a8343a;
+}
+.cal__heart {
+  position: absolute; left: 50%; top: 44%; width: 36px; height: 33px; transform: translate(-50%, -54%) scale(0);
+  fill: #d8233a; filter: drop-shadow(0 3px 4px rgba(150, 10, 30, .45));
+}
+.std.is-in .cal__heart { animation: heart-pop .7s cubic-bezier(.3, 1.6, .5, 1) calc(.9s + var(--i) * .45s) forwards, heart-beat 2.4s ease-in-out calc(2.4s + var(--i) * .45s) infinite; }
+@keyframes heart-pop { to { transform: translate(-50%, -54%) scale(1); } }
+@keyframes heart-beat { 0%, 100% { transform: translate(-50%, -54%) scale(1); } 12% { transform: translate(-50%, -54%) scale(1.14); } 24% { transform: translate(-50%, -54%) scale(1); } 36% { transform: translate(-50%, -54%) scale(1.08); } }
+.cal__legend { display: flex; justify-content: center; gap: 1rem; margin-top: .9rem; font-family: "Cinzel", serif; font-weight: 700; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: #5a0f17; }
+.cal__legend i { font-style: normal; color: #d8233a; margin-right: .3rem; }
+@media (min-width: 900px) {
+  .std { width: 340px; margin-bottom: 2rem; }
+}
+
 /* shared: gold corner ornaments & twinkling sparkles */
 .closing__corner { position: absolute; width: 44px; height: 44px; background: url("../assets/art/corner.svg") center / contain no-repeat; }
 .closing__corner--tl { top: 4px; left: 4px; }
@@ -1185,7 +1236,7 @@ section.families .families__heading { font-size: clamp(2.1rem, 4vw, 3rem); line-
 
 @media (max-width: 899px) {
   /* taller page so the couple stays clear above the words */
-  .closing { min-height: max(100svh, 208vw); }
+  .closing { min-height: max(100svh, 236vw); }
   .closing__photo { object-position: 46% 0%; }
   .closing__shade { background:
     linear-gradient(180deg, rgba(40, 20, 8, 0) 50%, rgba(40, 20, 8, .5) 62%, rgba(30, 14, 6, .85) 78%, rgba(24, 10, 4, .94) 100%); }
@@ -1243,4 +1294,5 @@ section.families .families__heading { font-size: clamp(2.1rem, 4vw, 3rem); line-
   .gate.is-open .gate__stage, .gate__seam, .gate__light { animation: none !important; }
   .closing__photo { opacity: 1; filter: blur(var(--photo-blur)); transform: none; }
   .closing__glints, .closing__sun { display: none; }
+  .cal__heart { transform: translate(-50%, -54%) scale(1); }
 }

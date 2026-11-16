@@ -134,6 +134,12 @@ window.WEDDING = {
     { side: "Bride", name: "Mr Linngesh", phone: "011-3355 2742" }
   ],
 
+  // --- Save the Date calendar (last page) ---
+  saveTheDate: {
+    year: 2026, month: 12,                       // December 2026
+    marks: [ { day: 11, label: "Wedding" }, { day: 13, label: "Reception" } ]
+  },
+
   // --- Closing (last page) ---
   closing: {
     photo: "assets/photos/couple-beach.webp",
