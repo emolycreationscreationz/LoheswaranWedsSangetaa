@@ -239,6 +239,18 @@ a { color: inherit; }
 }
 .gate.is-open::before { opacity: 0; }
 
+/* grand marigold garland across the top of the opening page */
+.gate__garland {
+  position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: clamp(230px, 62vw, 360px); pointer-events: none;
+  background: url("../assets/art/garland-grand.svg") center top / auto 100% repeat-x;
+  filter: drop-shadow(0 8px 10px rgba(30, 6, 2, .45));
+  transform-origin: top center;
+  transform: translateY(-30%); opacity: 0;
+  transition: transform 1.6s cubic-bezier(.2, .8, .2, 1) .3s, opacity 1.2s ease .3s;
+}
+.gate.is-ready .gate__garland { transform: none; opacity: 1; animation: garland-sway 7s ease-in-out 2s infinite; }
+@keyframes garland-sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(.35deg) translateY(1px); } }
+.gate.is-ready.is-open .gate__garland { animation: none; transform: translateY(-110%); opacity: 0; transition: transform 1.4s cubic-bezier(.6, 0, .4, 1) .1s, opacity 1s ease .4s; }
 .gate__dust { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .gate__dust span {
   position: absolute; width: var(--sz); height: var(--sz); border-radius: 50%;

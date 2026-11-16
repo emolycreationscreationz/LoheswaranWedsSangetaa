@@ -29,7 +29,7 @@ window.WEDDING = {
   quote: "“A Love Written by the Waves...”",
 
   // --- Dates ---
-  dateShort: "13 · 12 · 2026",                 // shown on the opening doors
+  dateShort: "11 · 12 · 2026",                 // shown on the opening doors
   countdownTo: "2026-12-13T19:31:00+08:00",    // reception, 7:31 PM Malaysia time (+08:00)
 
   // --- Hero background photo ---
