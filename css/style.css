@@ -137,7 +137,7 @@ a { color: inherit; }
    OPENING GATE (carved temple doors that swing open)
    ============================================================ */
 .gate {
-  --door-l: 39.83%; --door-t: 32.55%; --half-w: 10.32%; --door-h: 48.44%;
+  --door-l: 17.29%; --door-t: 31.48%; --half-w: 32.92%; --door-h: 60.93%;
   position: fixed; inset: 0; z-index: 100; overflow: hidden;
   background: #1c0a05;
   transition: opacity 1.3s ease, visibility 1.3s ease;
@@ -147,24 +147,31 @@ a { color: inherit; }
 /* the photo, sized to cover the screen while keeping the doors aligned */
 .gate__stage {
   position: absolute; left: 50%; top: 50%;
-  width: max(100vw, 100vh * 1376 / 768); width: max(100vw, 100dvh * 1376 / 768);
-  aspect-ratio: 1376 / 768;
+  height: 100vh; height: 100dvh; aspect-ratio: 720 / 1080;
   transform: translate(-50%, -50%) scale(1.08);
-  transform-origin: 50.15% 56.77%;
+  transform-origin: 50.21% 61.94%;
   opacity: 0; filter: brightness(.6);
   transition: transform 2.6s cubic-bezier(.22, .61, .36, 1), opacity 1.6s ease, filter 2.6s ease;
   perspective: 1600px;
 }
 .gate.is-ready .gate__stage { transform: translate(-50%, -50%) scale(1); opacity: 1; filter: brightness(1); }
+/* wide screens: blurred copy of the doors fills the sides */
+.gate__backdrop {
+  position: absolute; inset: -40px; pointer-events: none;
+  background: url("../assets/backgrounds/doors.webp") center / cover no-repeat;
+  filter: blur(26px) brightness(.55) saturate(1.1);
+  transition: opacity 1s ease;
+}
+.gate.is-open .gate__backdrop { opacity: 0; transition: opacity 1.2s ease 1.6s; }
 .gate__stage::before {
   content: ""; position: absolute; inset: 0;
   background: url("../assets/backgrounds/doors.webp") center / 100% 100% no-repeat;
 }
 /* once opening, the doorway becomes a window onto page 1 */
 .gate.is-open .gate__stage::before {
-  -webkit-mask: linear-gradient(#000, #000), linear-gradient(#000, #000) 50.18% 63.13% / 20.64% 48.44% no-repeat;
+  -webkit-mask: linear-gradient(#000, #000), linear-gradient(#000, #000) 50.61% 80.57% / 65.83% 60.93% no-repeat;
   -webkit-mask-composite: xor;
-  mask: linear-gradient(#000, #000), linear-gradient(#000, #000) 50.18% 63.13% / 20.64% 48.44% no-repeat;
+  mask: linear-gradient(#000, #000), linear-gradient(#000, #000) 50.61% 80.57% / 65.83% 60.93% no-repeat;
   mask-composite: exclude;
 }
 .gate.is-open { background: transparent; transition: background 0s; }
@@ -187,13 +194,13 @@ a { color: inherit; }
 .gate__door {
   position: absolute; top: var(--door-t); width: var(--half-w); height: var(--door-h);
   background-image: url("../assets/backgrounds/doors.webp");
-  background-size: 969% auto; background-repeat: no-repeat;
+  background-size: 303.8% auto; background-repeat: no-repeat;
   backface-visibility: hidden; -webkit-backface-visibility: hidden;
   transition: transform 2.3s cubic-bezier(.6, .02, .2, 1) .75s, filter 2.3s ease .75s;
   will-change: transform;
 }
-.gate__door--left { left: var(--door-l); background-position: 44.41% 63.13%; transform-origin: left center; }
-.gate__door--right { left: calc(var(--door-l) + var(--half-w)); background-position: 55.92% 63.13%; transform-origin: right center; }
+.gate__door--left { left: var(--door-l); background-position: 25.78% 80.57%; transform-origin: left center; }
+.gate__door--right { left: calc(var(--door-l) + var(--half-w)); background-position: 74.84% 80.57%; transform-origin: right center; }
 .gate.is-open .gate__door--left { transform: rotateY(-108deg); filter: brightness(.55); }
 .gate.is-open .gate__door--right { transform: rotateY(108deg); filter: brightness(.55); }
 
