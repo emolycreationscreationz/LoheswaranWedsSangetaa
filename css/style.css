@@ -547,7 +547,9 @@ a { color: inherit; }
   section.families .section-title { font-size: clamp(2.5rem, 11vw, 2.9rem); }
   section.families .flourish-img { margin: .4rem auto .9rem; }
   section.families .families__heading { font-size: clamp(2rem, 9vw, 2.5rem); max-width: 18rem; }
-  section.families .families__intro { font-size: clamp(1.1rem, 4.6vw, 1.25rem); max-width: none; margin-bottom: 1.6rem; }
+  section.families .families__intro { margin-bottom: .6rem; }
+.families .families__intro-flourish { margin: 0 auto 1.8rem; }
+.families__intro { font-size: clamp(1.1rem, 4.6vw, 1.25rem); max-width: none; margin-bottom: 1.6rem; }
   section.families .person__name { font-size: clamp(2.9rem, 13vw, 3.5rem); margin-top: .3rem; }
   section.families .flourish-img--sm { margin: .4rem auto .5rem; }
   section.families .person__rel { font-size: clamp(1.1rem, 4.6vw, 1.22rem); }
@@ -570,7 +572,18 @@ a { color: inherit; }
 section.families .families__heading { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.15; max-width: 30rem; margin: .45rem auto .5rem; }
 .families .eyebrow { font-size: .78rem; }
 .families__intro { font-size: 1.4rem; line-height: 1.5; color: var(--brown-soft); max-width: 30rem; margin: 0 auto 2.6rem; }
-.flourish-img {
+/* highlighted couple names: deep maroon with a soft gold glow and gold underline */
+.families .person__name > span:first-child {
+  position: relative; display: inline-block; padding: 0 .18em .05em; color: #5a0f17;
+  text-shadow: 0 0 1px rgba(90, 15, 23, .7), 0 0 14px rgba(255, 236, 190, 1), 0 0 30px rgba(255, 228, 170, .9);
+  background: radial-gradient(ellipse 60% 55% at 50% 55%, rgba(255, 248, 228, .85), rgba(255, 244, 220, .35) 60%, transparent 75%);
+}
+.families .person__name > span:first-child::after {
+  content: ""; position: absolute; left: 10%; right: 10%; bottom: .06em; height: 2px;
+  background: linear-gradient(90deg, transparent, #c8963e 25%, #f3d68a 50%, #c8963e 75%, transparent);
+}
+.families .person__name { margin-top: .4rem; }
+.families .flourish-img {
   display: block; width: 74px; height: 16px; margin: .5rem auto 1.3rem;
   background: url("../assets/art/flourish.svg") center / contain no-repeat;
 }

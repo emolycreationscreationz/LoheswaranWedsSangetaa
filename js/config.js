@@ -19,7 +19,7 @@ window.WEDDING = {
   bride: {
     short: "Sangetaa",
     full: "Sangetaa",
-    title: "M.Ed.",
+    title: "",
     relation: "Daughter of",
     father: "Late Mr. Subramaniam",
     mother: "Mrs. Meenachi",
@@ -43,7 +43,7 @@ window.WEDDING = {
 
   // --- Our Families ---
   familiesEyebrow: "Together with our families,",
-  familiesIntro: ["We invite you to witness", "the beginning of our forever"],
+  familiesIntro: ["Together with our families,", "We invite you to witness", "the beginning of our forever"],
 
   // --- The Venue (page 3) ---
   venue: {   // "The Wedding" page
