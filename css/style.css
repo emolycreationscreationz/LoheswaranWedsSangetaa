@@ -137,7 +137,7 @@ a { color: inherit; }
    OPENING GATE (carved temple doors that swing open)
    ============================================================ */
 .gate {
-  --door-l: 17.29%; --door-t: 31.48%; --half-w: 32.92%; --door-h: 60.93%;
+  --door-l: 17.29%; --door-t: 15%; --half-w: 32.92%; --door-h: 77.41%;
   position: fixed; inset: 0; z-index: 100; overflow: hidden;
   background: #1c0a05;
   transition: opacity 1.3s ease, visibility 1.3s ease;
@@ -149,7 +149,7 @@ a { color: inherit; }
   position: absolute; left: 50%; top: 50%;
   height: 100vh; height: 100dvh; aspect-ratio: 720 / 1080;
   transform: translate(-50%, -50%) scale(1.08);
-  transform-origin: 50.21% 61.94%;
+  transform-origin: 50.21% 53.7%;
   opacity: 0; filter: brightness(.6);
   transition: transform 2.6s cubic-bezier(.22, .61, .36, 1), opacity 1.6s ease, filter 2.6s ease;
   perspective: 1600px;
@@ -169,17 +169,16 @@ a { color: inherit; }
 }
 /* once opening, the doorway becomes a window onto page 1 */
 .gate.is-open .gate__stage::before {
-  -webkit-mask: linear-gradient(#000, #000), linear-gradient(#000, #000) 50.61% 80.57% / 65.83% 60.93% no-repeat;
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000, #000), linear-gradient(#000, #000) 50.61% 80.57% / 65.83% 60.93% no-repeat;
-  mask-composite: exclude;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 1080' preserveAspectRatio='none'%3E%3Cpath fill-rule='evenodd' d='M0 0H720V1080H0Z M124.5 998.0 L124.5 329.2 C134.0 262.3 176.6 212.2 231.2 191.3 C290.4 170.4 333.1 162.0 361.5 162.0 C389.9 162.0 432.6 170.4 491.9 191.3 C546.4 212.2 589.0 262.3 598.5 329.2 L598.5 998.0 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 1080' preserveAspectRatio='none'%3E%3Cpath fill-rule='evenodd' d='M0 0H720V1080H0Z M124.5 998.0 L124.5 329.2 C134.0 262.3 176.6 212.2 231.2 191.3 C290.4 170.4 333.1 162.0 361.5 162.0 C389.9 162.0 432.6 170.4 491.9 191.3 C546.4 212.2 589.0 262.3 598.5 329.2 L598.5 998.0 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
 .gate.is-open { background: transparent; transition: background 0s; }
 
 /* golden light waiting behind the doors */
 .gate__light {
   position: absolute; left: var(--door-l); top: var(--door-t); width: calc(var(--half-w) * 2); height: var(--door-h);
-  overflow: hidden; border-radius: 2px;
+  overflow: hidden;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100 L0 20 C4 12 22 6 45 3.5 C70 1 88 0 100 0 C112 0 130 1 155 3.5 C178 6 196 12 200 20 L200 100 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100 L0 20 C4 12 22 6 45 3.5 C70 1 88 0 100 0 C112 0 130 1 155 3.5 C178 6 196 12 200 20 L200 100 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
   background: radial-gradient(ellipse 70% 60% at 50% 55%, #fffbea 0%, #ffe6a6 30%, #f2b85a 65%, #a5651c 100%);
 }
 .gate__rays {
@@ -199,8 +198,10 @@ a { color: inherit; }
   transition: transform 2.3s cubic-bezier(.6, .02, .2, 1) .75s, filter 2.3s ease .75s;
   will-change: transform;
 }
-.gate__door--left { left: var(--door-l); background-position: 25.78% 80.57%; transform-origin: left center; }
-.gate__door--right { left: calc(var(--door-l) + var(--half-w)); background-position: 74.84% 80.57%; transform-origin: right center; }
+.gate__door--left { left: var(--door-l); background-position: 25.78% 66.39%; transform-origin: left center;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100 L0 20 C4 12 22 6 45 3.5 C70 1 88 0 100 0 L100 100 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100 L0 20 C4 12 22 6 45 3.5 C70 1 88 0 100 0 L100 100 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; }
+.gate__door--right { left: calc(var(--door-l) + var(--half-w)); background-position: 74.84% 66.39%; transform-origin: right center;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100 100 L100 20 C96 12 78 6 55 3.5 C30 1 12 0 0 0 L0 100 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100 100 L100 20 C96 12 78 6 55 3.5 C30 1 12 0 0 0 L0 100 Z'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat; }
 .gate.is-open .gate__door--left { transform: rotateY(-108deg); filter: brightness(.55); }
 .gate.is-open .gate__door--right { transform: rotateY(108deg); filter: brightness(.55); }
 
