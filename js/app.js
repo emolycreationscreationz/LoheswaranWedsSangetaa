@@ -248,7 +248,14 @@
   }
 
   // ---------- countdown ----------
-  var target = new Date(W.countdownTo).getTime();
+  // parse "YYYY-MM-DDTHH:MM:SS+HH:MM" by hand so every browser reads it the same way
+  function parseTarget(str) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?([+-])(\d{2}):(\d{2})$/.exec(String(str || ""));
+    if (!m) return new Date(str).getTime();
+    var off = (m[7] === "-" ? -1 : 1) * (+m[8] * 60 + +m[9]);
+    return Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +(m[6] || 0)) - off * 60000;
+  }
+  var target = parseTarget(W.countdownTo);
   var cd = {};
   document.querySelectorAll("[data-cd]").forEach(function (el) { cd[el.getAttribute("data-cd")] = el; });
   function pad(n) { return (n < 10 ? "0" : "") + n; }

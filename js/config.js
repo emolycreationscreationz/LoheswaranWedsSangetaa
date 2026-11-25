@@ -30,7 +30,7 @@ window.WEDDING = {
 
   // --- Dates ---
   dateShort: "11 · 12 · 2026",                 // shown on the opening doors
-  countdownTo: "2026-12-13T19:31:00+08:00",    // reception, 7:31 PM Malaysia time (+08:00)
+  countdownTo: "2026-12-11T08:45:00+08:00",    // wedding, Fri 11 Dec 2026, 8:45 AM Malaysia time (+08:00)
 
   // --- Hero background photo ---
   // Wide image for desktop (16:9, e.g. 1920x1080) and tall image for phones (9:16, e.g. 1080x1920).
